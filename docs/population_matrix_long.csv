@@ -1,0 +1,321 @@
+"stadium_id","stadium_name","city","country","cutoff_min","buffer_km","transit_pop","buffer_pop","pct_reachable"
+1,"Lumen Field","Seattle","USA",15,5,8402,303078,2.77
+1,"Lumen Field","Seattle","USA",15,10,8402,865088,0.97
+1,"Lumen Field","Seattle","USA",15,20,8402,2161794,0.39
+1,"Lumen Field","Seattle","USA",15,25,8402,2967947,0.28
+1,"Lumen Field","Seattle","USA",15,50,8402,5627879,0.15
+1,"Lumen Field","Seattle","USA",30,5,125385,303078,41.37
+1,"Lumen Field","Seattle","USA",30,10,125385,865088,14.49
+1,"Lumen Field","Seattle","USA",30,20,125385,2161794,5.8
+1,"Lumen Field","Seattle","USA",30,25,125385,2967947,4.22
+1,"Lumen Field","Seattle","USA",30,50,125385,5627879,2.23
+1,"Lumen Field","Seattle","USA",45,5,554880,303078,183.08
+1,"Lumen Field","Seattle","USA",45,10,554880,865088,64.14
+1,"Lumen Field","Seattle","USA",45,20,554880,2161794,25.67
+1,"Lumen Field","Seattle","USA",45,25,554880,2967947,18.7
+1,"Lumen Field","Seattle","USA",45,50,554880,5627879,9.86
+1,"Lumen Field","Seattle","USA",60,5,1111922,303078,366.88
+1,"Lumen Field","Seattle","USA",60,10,1111922,865088,128.53
+1,"Lumen Field","Seattle","USA",60,20,1111922,2161794,51.44
+1,"Lumen Field","Seattle","USA",60,25,1111922,2967947,37.46
+1,"Lumen Field","Seattle","USA",60,50,1111922,5627879,19.76
+2,"Levi's Stadium","Santa Clara","USA",15,5,611,128787,0.47
+2,"Levi's Stadium","Santa Clara","USA",15,10,611,714786,0.09
+2,"Levi's Stadium","Santa Clara","USA",15,20,611,2406093,0.03
+2,"Levi's Stadium","Santa Clara","USA",15,25,611,2856845,0.02
+2,"Levi's Stadium","Santa Clara","USA",15,50,611,5060831,0.01
+2,"Levi's Stadium","Santa Clara","USA",30,5,25443,128787,19.76
+2,"Levi's Stadium","Santa Clara","USA",30,10,25443,714786,3.56
+2,"Levi's Stadium","Santa Clara","USA",30,20,25443,2406093,1.06
+2,"Levi's Stadium","Santa Clara","USA",30,25,25443,2856845,0.89
+2,"Levi's Stadium","Santa Clara","USA",30,50,25443,5060831,0.5
+2,"Levi's Stadium","Santa Clara","USA",45,5,131052,128787,101.76
+2,"Levi's Stadium","Santa Clara","USA",45,10,131052,714786,18.33
+2,"Levi's Stadium","Santa Clara","USA",45,20,131052,2406093,5.45
+2,"Levi's Stadium","Santa Clara","USA",45,25,131052,2856845,4.59
+2,"Levi's Stadium","Santa Clara","USA",45,50,131052,5060831,2.59
+2,"Levi's Stadium","Santa Clara","USA",60,5,484239,128787,376
+2,"Levi's Stadium","Santa Clara","USA",60,10,484239,714786,67.75
+2,"Levi's Stadium","Santa Clara","USA",60,20,484239,2406093,20.13
+2,"Levi's Stadium","Santa Clara","USA",60,25,484239,2856845,16.95
+2,"Levi's Stadium","Santa Clara","USA",60,50,484239,5060831,9.57
+3,"SoFi Stadium","Inglewood","USA",15,5,9393,432550,2.17
+3,"SoFi Stadium","Inglewood","USA",15,10,9393,1693666,0.55
+3,"SoFi Stadium","Inglewood","USA",15,20,9393,5142466,0.18
+3,"SoFi Stadium","Inglewood","USA",15,25,9393,6810526,0.14
+3,"SoFi Stadium","Inglewood","USA",15,50,9393,13363935,0.07
+3,"SoFi Stadium","Inglewood","USA",30,5,107686,432550,24.9
+3,"SoFi Stadium","Inglewood","USA",30,10,107686,1693666,6.36
+3,"SoFi Stadium","Inglewood","USA",30,20,107686,5142466,2.09
+3,"SoFi Stadium","Inglewood","USA",30,25,107686,6810526,1.58
+3,"SoFi Stadium","Inglewood","USA",30,50,107686,13363935,0.81
+3,"SoFi Stadium","Inglewood","USA",45,5,523384,432550,121
+3,"SoFi Stadium","Inglewood","USA",45,10,523384,1693666,30.9
+3,"SoFi Stadium","Inglewood","USA",45,20,523384,5142466,10.18
+3,"SoFi Stadium","Inglewood","USA",45,25,523384,6810526,7.68
+3,"SoFi Stadium","Inglewood","USA",45,50,523384,13363935,3.92
+3,"SoFi Stadium","Inglewood","USA",60,5,1323613,432550,306
+3,"SoFi Stadium","Inglewood","USA",60,10,1323613,1693666,78.15
+3,"SoFi Stadium","Inglewood","USA",60,20,1323613,5142466,25.74
+3,"SoFi Stadium","Inglewood","USA",60,25,1323613,6810526,19.43
+3,"SoFi Stadium","Inglewood","USA",60,50,1323613,13363935,9.9
+4,"Arrowhead Stadium","Kansas City","USA",15,5,0,82118,0
+4,"Arrowhead Stadium","Kansas City","USA",15,10,0,433057,0
+4,"Arrowhead Stadium","Kansas City","USA",15,20,0,1285591,0
+4,"Arrowhead Stadium","Kansas City","USA",15,25,0,1761873,0
+4,"Arrowhead Stadium","Kansas City","USA",15,50,0,2695046,0
+4,"Arrowhead Stadium","Kansas City","USA",30,5,757,82118,0.92
+4,"Arrowhead Stadium","Kansas City","USA",30,10,757,433057,0.17
+4,"Arrowhead Stadium","Kansas City","USA",30,20,757,1285591,0.06
+4,"Arrowhead Stadium","Kansas City","USA",30,25,757,1761873,0.04
+4,"Arrowhead Stadium","Kansas City","USA",30,50,757,2695046,0.03
+4,"Arrowhead Stadium","Kansas City","USA",45,5,15076,82118,18.36
+4,"Arrowhead Stadium","Kansas City","USA",45,10,15076,433057,3.48
+4,"Arrowhead Stadium","Kansas City","USA",45,20,15076,1285591,1.17
+4,"Arrowhead Stadium","Kansas City","USA",45,25,15076,1761873,0.86
+4,"Arrowhead Stadium","Kansas City","USA",45,50,15076,2695046,0.56
+4,"Arrowhead Stadium","Kansas City","USA",60,5,57201,82118,69.66
+4,"Arrowhead Stadium","Kansas City","USA",60,10,57201,433057,13.21
+4,"Arrowhead Stadium","Kansas City","USA",60,20,57201,1285591,4.45
+4,"Arrowhead Stadium","Kansas City","USA",60,25,57201,1761873,3.25
+4,"Arrowhead Stadium","Kansas City","USA",60,50,57201,2695046,2.12
+5,"Gillette Stadium","Foxborough","USA",15,5,68,33817,0.2
+5,"Gillette Stadium","Foxborough","USA",15,10,68,148663,0.05
+5,"Gillette Stadium","Foxborough","USA",15,20,68,719476,0.01
+5,"Gillette Stadium","Foxborough","USA",15,25,68,1458518,0
+5,"Gillette Stadium","Foxborough","USA",15,50,68,5295184,0
+5,"Gillette Stadium","Foxborough","USA",30,5,1139,33817,3.37
+5,"Gillette Stadium","Foxborough","USA",30,10,1139,148663,0.77
+5,"Gillette Stadium","Foxborough","USA",30,20,1139,719476,0.16
+5,"Gillette Stadium","Foxborough","USA",30,25,1139,1458518,0.08
+5,"Gillette Stadium","Foxborough","USA",30,50,1139,5295184,0.02
+5,"Gillette Stadium","Foxborough","USA",45,5,5435,33817,16.07
+5,"Gillette Stadium","Foxborough","USA",45,10,5435,148663,3.66
+5,"Gillette Stadium","Foxborough","USA",45,20,5435,719476,0.76
+5,"Gillette Stadium","Foxborough","USA",45,25,5435,1458518,0.37
+5,"Gillette Stadium","Foxborough","USA",45,50,5435,5295184,0.1
+5,"Gillette Stadium","Foxborough","USA",60,5,19079,33817,56.42
+5,"Gillette Stadium","Foxborough","USA",60,10,19079,148663,12.83
+5,"Gillette Stadium","Foxborough","USA",60,20,19079,719476,2.65
+5,"Gillette Stadium","Foxborough","USA",60,25,19079,1458518,1.31
+5,"Gillette Stadium","Foxborough","USA",60,50,19079,5295184,0.36
+6,"Lincoln Financial Field","Philadelphia","USA",15,5,37,255007,0.01
+6,"Lincoln Financial Field","Philadelphia","USA",15,10,37,1158950,0
+6,"Lincoln Financial Field","Philadelphia","USA",15,20,37,3337297,0
+6,"Lincoln Financial Field","Philadelphia","USA",15,25,37,4087106,0
+6,"Lincoln Financial Field","Philadelphia","USA",15,50,37,7311270,0
+6,"Lincoln Financial Field","Philadelphia","USA",30,5,84829,255007,33.27
+6,"Lincoln Financial Field","Philadelphia","USA",30,10,84829,1158950,7.32
+6,"Lincoln Financial Field","Philadelphia","USA",30,20,84829,3337297,2.54
+6,"Lincoln Financial Field","Philadelphia","USA",30,25,84829,4087106,2.08
+6,"Lincoln Financial Field","Philadelphia","USA",30,50,84829,7311270,1.16
+6,"Lincoln Financial Field","Philadelphia","USA",45,5,392437,255007,153.89
+6,"Lincoln Financial Field","Philadelphia","USA",45,10,392437,1158950,33.86
+6,"Lincoln Financial Field","Philadelphia","USA",45,20,392437,3337297,11.76
+6,"Lincoln Financial Field","Philadelphia","USA",45,25,392437,4087106,9.6
+6,"Lincoln Financial Field","Philadelphia","USA",45,50,392437,7311270,5.37
+6,"Lincoln Financial Field","Philadelphia","USA",60,5,991027,255007,388.63
+6,"Lincoln Financial Field","Philadelphia","USA",60,10,991027,1158950,85.51
+6,"Lincoln Financial Field","Philadelphia","USA",60,20,991027,3337297,29.7
+6,"Lincoln Financial Field","Philadelphia","USA",60,25,991027,4087106,24.25
+6,"Lincoln Financial Field","Philadelphia","USA",60,50,991027,7311270,13.55
+7,"Mercedes-Benz Stadium","Atlanta","USA",15,5,8498,226862,3.75
+7,"Mercedes-Benz Stadium","Atlanta","USA",15,10,8498,623457,1.36
+7,"Mercedes-Benz Stadium","Atlanta","USA",15,20,8498,1802712,0.47
+7,"Mercedes-Benz Stadium","Atlanta","USA",15,25,8498,2679248,0.32
+7,"Mercedes-Benz Stadium","Atlanta","USA",15,50,8498,6366864,0.13
+7,"Mercedes-Benz Stadium","Atlanta","USA",30,5,175530,226862,77.37
+7,"Mercedes-Benz Stadium","Atlanta","USA",30,10,175530,623457,28.15
+7,"Mercedes-Benz Stadium","Atlanta","USA",30,20,175530,1802712,9.74
+7,"Mercedes-Benz Stadium","Atlanta","USA",30,25,175530,2679248,6.55
+7,"Mercedes-Benz Stadium","Atlanta","USA",30,50,175530,6366864,2.76
+7,"Mercedes-Benz Stadium","Atlanta","USA",45,5,539741,226862,237.92
+7,"Mercedes-Benz Stadium","Atlanta","USA",45,10,539741,623457,86.57
+7,"Mercedes-Benz Stadium","Atlanta","USA",45,20,539741,1802712,29.94
+7,"Mercedes-Benz Stadium","Atlanta","USA",45,25,539741,2679248,20.15
+7,"Mercedes-Benz Stadium","Atlanta","USA",45,50,539741,6366864,8.48
+7,"Mercedes-Benz Stadium","Atlanta","USA",60,5,1008324,226862,444.47
+7,"Mercedes-Benz Stadium","Atlanta","USA",60,10,1008324,623457,161.73
+7,"Mercedes-Benz Stadium","Atlanta","USA",60,20,1008324,1802712,55.93
+7,"Mercedes-Benz Stadium","Atlanta","USA",60,25,1008324,2679248,37.63
+7,"Mercedes-Benz Stadium","Atlanta","USA",60,50,1008324,6366864,15.84
+8,"AT&T Stadium","Arlington","USA",15,5,4045,204741,1.98
+8,"AT&T Stadium","Arlington","USA",15,10,4045,586409,0.69
+8,"AT&T Stadium","Arlington","USA",15,20,4045,2001289,0.2
+8,"AT&T Stadium","Arlington","USA",15,25,4045,2881391,0.14
+8,"AT&T Stadium","Arlington","USA",15,50,4045,7101292,0.06
+8,"AT&T Stadium","Arlington","USA",30,5,15005,204741,7.33
+8,"AT&T Stadium","Arlington","USA",30,10,15005,586409,2.56
+8,"AT&T Stadium","Arlington","USA",30,20,15005,2001289,0.75
+8,"AT&T Stadium","Arlington","USA",30,25,15005,2881391,0.52
+8,"AT&T Stadium","Arlington","USA",30,50,15005,7101292,0.21
+8,"AT&T Stadium","Arlington","USA",45,5,46788,204741,22.85
+8,"AT&T Stadium","Arlington","USA",45,10,46788,586409,7.98
+8,"AT&T Stadium","Arlington","USA",45,20,46788,2001289,2.34
+8,"AT&T Stadium","Arlington","USA",45,25,46788,2881391,1.62
+8,"AT&T Stadium","Arlington","USA",45,50,46788,7101292,0.66
+8,"AT&T Stadium","Arlington","USA",60,5,99336,204741,48.52
+8,"AT&T Stadium","Arlington","USA",60,10,99336,586409,16.94
+8,"AT&T Stadium","Arlington","USA",60,20,99336,2001289,4.96
+8,"AT&T Stadium","Arlington","USA",60,25,99336,2881391,3.45
+8,"AT&T Stadium","Arlington","USA",60,50,99336,7101292,1.4
+9,"NRG Stadium","Houston","USA",15,5,4405,175422,2.51
+9,"NRG Stadium","Houston","USA",15,10,4405,864546,0.51
+9,"NRG Stadium","Houston","USA",15,20,4405,2938059,0.15
+9,"NRG Stadium","Houston","USA",15,25,4405,3991577,0.11
+9,"NRG Stadium","Houston","USA",15,50,4405,7826256,0.06
+9,"NRG Stadium","Houston","USA",30,5,44156,175422,25.17
+9,"NRG Stadium","Houston","USA",30,10,44156,864546,5.11
+9,"NRG Stadium","Houston","USA",30,20,44156,2938059,1.5
+9,"NRG Stadium","Houston","USA",30,25,44156,3991577,1.11
+9,"NRG Stadium","Houston","USA",30,50,44156,7826256,0.56
+9,"NRG Stadium","Houston","USA",45,5,219084,175422,124.89
+9,"NRG Stadium","Houston","USA",45,10,219084,864546,25.34
+9,"NRG Stadium","Houston","USA",45,20,219084,2938059,7.46
+9,"NRG Stadium","Houston","USA",45,25,219084,3991577,5.49
+9,"NRG Stadium","Houston","USA",45,50,219084,7826256,2.8
+9,"NRG Stadium","Houston","USA",60,5,707972,175422,403.58
+9,"NRG Stadium","Houston","USA",60,10,707972,864546,81.89
+9,"NRG Stadium","Houston","USA",60,20,707972,2938059,24.1
+9,"NRG Stadium","Houston","USA",60,25,707972,3991577,17.74
+9,"NRG Stadium","Houston","USA",60,50,707972,7826256,9.05
+10,"Hard Rock Stadium","Miami Gardens","USA",15,5,706,240615,0.29
+10,"Hard Rock Stadium","Miami Gardens","USA",15,10,706,930780,0.08
+10,"Hard Rock Stadium","Miami Gardens","USA",15,20,706,2429322,0.03
+10,"Hard Rock Stadium","Miami Gardens","USA",15,25,706,3375755,0.02
+10,"Hard Rock Stadium","Miami Gardens","USA",15,50,706,5447963,0.01
+10,"Hard Rock Stadium","Miami Gardens","USA",30,5,10765,240615,4.47
+10,"Hard Rock Stadium","Miami Gardens","USA",30,10,10765,930780,1.16
+10,"Hard Rock Stadium","Miami Gardens","USA",30,20,10765,2429322,0.44
+10,"Hard Rock Stadium","Miami Gardens","USA",30,25,10765,3375755,0.32
+10,"Hard Rock Stadium","Miami Gardens","USA",30,50,10765,5447963,0.2
+10,"Hard Rock Stadium","Miami Gardens","USA",45,5,77330,240615,32.14
+10,"Hard Rock Stadium","Miami Gardens","USA",45,10,77330,930780,8.31
+10,"Hard Rock Stadium","Miami Gardens","USA",45,20,77330,2429322,3.18
+10,"Hard Rock Stadium","Miami Gardens","USA",45,25,77330,3375755,2.29
+10,"Hard Rock Stadium","Miami Gardens","USA",45,50,77330,5447963,1.42
+10,"Hard Rock Stadium","Miami Gardens","USA",60,5,257783,240615,107.14
+10,"Hard Rock Stadium","Miami Gardens","USA",60,10,257783,930780,27.7
+10,"Hard Rock Stadium","Miami Gardens","USA",60,20,257783,2429322,10.61
+10,"Hard Rock Stadium","Miami Gardens","USA",60,25,257783,3375755,7.64
+10,"Hard Rock Stadium","Miami Gardens","USA",60,50,257783,5447963,4.73
+11,"MetLife Stadium","East Rutherford","USA",15,5,4,147387,0
+11,"MetLife Stadium","East Rutherford","USA",15,10,4,1990275,0
+11,"MetLife Stadium","East Rutherford","USA",15,20,4,9826235,0
+11,"MetLife Stadium","East Rutherford","USA",15,25,4,13826833,0
+11,"MetLife Stadium","East Rutherford","USA",15,50,4,20758874,0
+11,"MetLife Stadium","East Rutherford","USA",30,5,1786,147387,1.21
+11,"MetLife Stadium","East Rutherford","USA",30,10,1786,1990275,0.09
+11,"MetLife Stadium","East Rutherford","USA",30,20,1786,9826235,0.02
+11,"MetLife Stadium","East Rutherford","USA",30,25,1786,13826833,0.01
+11,"MetLife Stadium","East Rutherford","USA",30,50,1786,20758874,0.01
+11,"MetLife Stadium","East Rutherford","USA",45,5,171332,147387,116.25
+11,"MetLife Stadium","East Rutherford","USA",45,10,171332,1990275,8.61
+11,"MetLife Stadium","East Rutherford","USA",45,20,171332,9826235,1.74
+11,"MetLife Stadium","East Rutherford","USA",45,25,171332,13826833,1.24
+11,"MetLife Stadium","East Rutherford","USA",45,50,171332,20758874,0.83
+11,"MetLife Stadium","East Rutherford","USA",60,5,1311412,147387,889.78
+11,"MetLife Stadium","East Rutherford","USA",60,10,1311412,1990275,65.89
+11,"MetLife Stadium","East Rutherford","USA",60,20,1311412,9826235,13.35
+11,"MetLife Stadium","East Rutherford","USA",60,25,1311412,13826833,9.48
+11,"MetLife Stadium","East Rutherford","USA",60,50,1311412,20758874,6.32
+12,"Estadio Azteca","Mexico City","MEX",15,5,26260,791210,3.32
+12,"Estadio Azteca","Mexico City","MEX",15,10,26260,2650915,0.99
+12,"Estadio Azteca","Mexico City","MEX",15,20,26260,8537171,0.31
+12,"Estadio Azteca","Mexico City","MEX",15,25,26260,11793532,0.22
+12,"Estadio Azteca","Mexico City","MEX",15,50,26260,22241759,0.12
+12,"Estadio Azteca","Mexico City","MEX",30,5,315925,791210,39.93
+12,"Estadio Azteca","Mexico City","MEX",30,10,315925,2650915,11.92
+12,"Estadio Azteca","Mexico City","MEX",30,20,315925,8537171,3.7
+12,"Estadio Azteca","Mexico City","MEX",30,25,315925,11793532,2.68
+12,"Estadio Azteca","Mexico City","MEX",30,50,315925,22241759,1.42
+12,"Estadio Azteca","Mexico City","MEX",45,5,1085558,791210,137.2
+12,"Estadio Azteca","Mexico City","MEX",45,10,1085558,2650915,40.95
+12,"Estadio Azteca","Mexico City","MEX",45,20,1085558,8537171,12.72
+12,"Estadio Azteca","Mexico City","MEX",45,25,1085558,11793532,9.2
+12,"Estadio Azteca","Mexico City","MEX",45,50,1085558,22241759,4.88
+12,"Estadio Azteca","Mexico City","MEX",60,5,2126030,791210,268.71
+12,"Estadio Azteca","Mexico City","MEX",60,10,2126030,2650915,80.2
+12,"Estadio Azteca","Mexico City","MEX",60,20,2126030,8537171,24.9
+12,"Estadio Azteca","Mexico City","MEX",60,25,2126030,11793532,18.03
+12,"Estadio Azteca","Mexico City","MEX",60,50,2126030,22241759,9.56
+13,"Estadio BBVA","Guadalupe","MEX",15,5,3152,494499,0.64
+13,"Estadio BBVA","Guadalupe","MEX",15,10,3152,1824246,0.17
+13,"Estadio BBVA","Guadalupe","MEX",15,20,3152,4109262,0.08
+13,"Estadio BBVA","Guadalupe","MEX",15,25,3152,4585633,0.07
+13,"Estadio BBVA","Guadalupe","MEX",15,50,3152,5509885,0.06
+13,"Estadio BBVA","Guadalupe","MEX",30,5,61428,494499,12.42
+13,"Estadio BBVA","Guadalupe","MEX",30,10,61428,1824246,3.37
+13,"Estadio BBVA","Guadalupe","MEX",30,20,61428,4109262,1.49
+13,"Estadio BBVA","Guadalupe","MEX",30,25,61428,4585633,1.34
+13,"Estadio BBVA","Guadalupe","MEX",30,50,61428,5509885,1.11
+13,"Estadio BBVA","Guadalupe","MEX",45,5,145798,494499,29.48
+13,"Estadio BBVA","Guadalupe","MEX",45,10,145798,1824246,7.99
+13,"Estadio BBVA","Guadalupe","MEX",45,20,145798,4109262,3.55
+13,"Estadio BBVA","Guadalupe","MEX",45,25,145798,4585633,3.18
+13,"Estadio BBVA","Guadalupe","MEX",45,50,145798,5509885,2.65
+13,"Estadio BBVA","Guadalupe","MEX",60,5,250202,494499,50.6
+13,"Estadio BBVA","Guadalupe","MEX",60,10,250202,1824246,13.72
+13,"Estadio BBVA","Guadalupe","MEX",60,20,250202,4109262,6.09
+13,"Estadio BBVA","Guadalupe","MEX",60,25,250202,4585633,5.46
+13,"Estadio BBVA","Guadalupe","MEX",60,50,250202,5509885,4.54
+14,"Estadio Akron","Zapopan","MEX",15,5,5,242004,0
+14,"Estadio Akron","Zapopan","MEX",15,10,5,1033462,0
+14,"Estadio Akron","Zapopan","MEX",15,20,5,3756399,0
+14,"Estadio Akron","Zapopan","MEX",15,25,5,4635553,0
+14,"Estadio Akron","Zapopan","MEX",15,50,5,5401790,0
+14,"Estadio Akron","Zapopan","MEX",30,5,760,242004,0.31
+14,"Estadio Akron","Zapopan","MEX",30,10,760,1033462,0.07
+14,"Estadio Akron","Zapopan","MEX",30,20,760,3756399,0.02
+14,"Estadio Akron","Zapopan","MEX",30,25,760,4635553,0.02
+14,"Estadio Akron","Zapopan","MEX",30,50,760,5401790,0.01
+14,"Estadio Akron","Zapopan","MEX",45,5,94393,242004,39
+14,"Estadio Akron","Zapopan","MEX",45,10,94393,1033462,9.13
+14,"Estadio Akron","Zapopan","MEX",45,20,94393,3756399,2.51
+14,"Estadio Akron","Zapopan","MEX",45,25,94393,4635553,2.04
+14,"Estadio Akron","Zapopan","MEX",45,50,94393,5401790,1.75
+14,"Estadio Akron","Zapopan","MEX",60,5,396327,242004,163.77
+14,"Estadio Akron","Zapopan","MEX",60,10,396327,1033462,38.35
+14,"Estadio Akron","Zapopan","MEX",60,20,396327,3756399,10.55
+14,"Estadio Akron","Zapopan","MEX",60,25,396327,4635553,8.55
+14,"Estadio Akron","Zapopan","MEX",60,50,396327,5401790,7.34
+15,"BMO Field","Toronto","CAN",15,5,5239,558590,0.94
+15,"BMO Field","Toronto","CAN",15,10,5239,1594096,0.33
+15,"BMO Field","Toronto","CAN",15,20,5239,4080468,0.13
+15,"BMO Field","Toronto","CAN",15,25,5239,5342124,0.1
+15,"BMO Field","Toronto","CAN",15,50,5239,9123718,0.06
+15,"BMO Field","Toronto","CAN",30,5,195992,558590,35.09
+15,"BMO Field","Toronto","CAN",30,10,195992,1594096,12.29
+15,"BMO Field","Toronto","CAN",30,20,195992,4080468,4.8
+15,"BMO Field","Toronto","CAN",30,25,195992,5342124,3.67
+15,"BMO Field","Toronto","CAN",30,50,195992,9123718,2.15
+15,"BMO Field","Toronto","CAN",45,5,856783,558590,153.38
+15,"BMO Field","Toronto","CAN",45,10,856783,1594096,53.75
+15,"BMO Field","Toronto","CAN",45,20,856783,4080468,21
+15,"BMO Field","Toronto","CAN",45,25,856783,5342124,16.04
+15,"BMO Field","Toronto","CAN",45,50,856783,9123718,9.39
+15,"BMO Field","Toronto","CAN",60,5,2094858,558590,375.03
+15,"BMO Field","Toronto","CAN",60,10,2094858,1594096,131.41
+15,"BMO Field","Toronto","CAN",60,20,2094858,4080468,51.34
+15,"BMO Field","Toronto","CAN",60,25,2094858,5342124,39.21
+15,"BMO Field","Toronto","CAN",60,50,2094858,9123718,22.96
+16,"BC Place","Vancouver","CAN",15,5,78837,626735,12.58
+16,"BC Place","Vancouver","CAN",15,10,78837,1572480,5.01
+16,"BC Place","Vancouver","CAN",15,20,78837,2521807,3.13
+16,"BC Place","Vancouver","CAN",15,25,78837,3170317,2.49
+16,"BC Place","Vancouver","CAN",15,50,78837,4279743,1.84
+16,"BC Place","Vancouver","CAN",30,5,522005,626735,83.29
+16,"BC Place","Vancouver","CAN",30,10,522005,1572480,33.2
+16,"BC Place","Vancouver","CAN",30,20,522005,2521807,20.7
+16,"BC Place","Vancouver","CAN",30,25,522005,3170317,16.47
+16,"BC Place","Vancouver","CAN",30,50,522005,4279743,12.2
+16,"BC Place","Vancouver","CAN",45,5,1525002,626735,243.32
+16,"BC Place","Vancouver","CAN",45,10,1525002,1572480,96.98
+16,"BC Place","Vancouver","CAN",45,20,1525002,2521807,60.47
+16,"BC Place","Vancouver","CAN",45,25,1525002,3170317,48.1
+16,"BC Place","Vancouver","CAN",45,50,1525002,4279743,35.63
+16,"BC Place","Vancouver","CAN",60,5,2331577,626735,372.02
+16,"BC Place","Vancouver","CAN",60,10,2331577,1572480,148.27
+16,"BC Place","Vancouver","CAN",60,20,2331577,2521807,92.46
+16,"BC Place","Vancouver","CAN",60,25,2331577,3170317,73.54
+16,"BC Place","Vancouver","CAN",60,50,2331577,4279743,54.48
