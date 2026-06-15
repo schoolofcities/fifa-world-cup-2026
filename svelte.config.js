@@ -14,7 +14,7 @@ const config = {
 		    assets: "docs"
 		}),
 		paths: {
-		    base: dev ? "" : "/at-the-match-2026",
+		    base: dev ? "" : "/fifa-world-cup-2026",
 		}
 	}
 };
