@@ -21,7 +21,7 @@
 		}))
 	);
 
-	let sortKey = $state('name');
+	let sortKey = $state('pop');
 
 	const sorted = $derived(
 		[...stadiums].sort((a, b) => {
@@ -61,7 +61,7 @@
 				How connected are FIFA World Cup 2026 stadiums to their cities via public transit?
 			</p><br>
 			<p>
-				We generated 60-minute public transit <a href="https://en.wikipedia.org/wiki/Isochrone_map" target="_blank" rel="noopener">isochrones</a> around every stadium and estimated how much of each metro's population lives within this area. The maps show that cities vary widely in how connected their stadiums are to the rest of the city via public transit.
+				We mapped how fare you can travel in 60-minute by public transit around every stadium. Then we estimated how much of each metro's population lives within this area. The maps and data show that cities vary widely in how connected their stadiums are to the rest of the city via public transit.
 			</p>
 			<div class="hero-byline">
 				<span class="hero-author">By Jeff Allen</span>
@@ -73,34 +73,32 @@
 
 	<!-- Sort controls + cards section -->
 	<div class="cards-section">
-		<div class="cards-grid controls-bar">
-			<div class="controls-bar-inner">
-				<div class="legend-item">
-					<svg class="legend-svg" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-						<clipPath id="circle-clip"><circle cx="30" cy="30" r="29"/></clipPath>
-						<circle cx="30" cy="30" r="29" fill="none"/>
-						<path clip-path="url(#circle-clip)" fill="#F1C500" stroke="white" stroke-width="1"
-							d="M32,14 L35,16 L39,14 L42,17 L45,15 L47,20 L45,23 L47,27 L46,30 L48,34 L45,37 L43,41 L40,44 L36,46 L32,47 L28,46 L24,47 L21,44 L18,41 L16,37 L14,33 L15,29 L13,25 L16,21 L18,17 L22,15 L26,13 Z"/>
-						<circle cx="30" cy="30" r="3" fill="#e05c5c"/>
-					</svg>
-					<span class="legend-label">Area reachable from the stadium in ~60 minutes by public transit</span>
-				</div>
-				<div class="sort-bar-inner">
-					<span class="sort-label">Sort by</span>
-					<div class="sort-buttons" role="group" aria-label="Sort stadiums by">
-						<button
-							class:active={sortKey === 'name'}
-							onclick={() => (sortKey = 'name')}
-						>Name</button>
-						<button
-							class:active={sortKey === 'pop'}
-							onclick={() => (sortKey = 'pop')}
-						>Population reached</button>
-						<button
-							class:active={sortKey === 'pct'}
-							onclick={() => (sortKey = 'pct')}
-						>% within 25km</button>
-					</div>
+		<div class="controls-bar">
+			<div class="legend-item">
+				<svg class="legend-svg" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+					<clipPath id="circle-clip"><circle cx="30" cy="30" r="29"/></clipPath>
+					<circle cx="30" cy="30" r="29" fill="none"/>
+					<path clip-path="url(#circle-clip)" fill="#F1C500" stroke="white" stroke-width="1"
+						d="M32,14 L35,16 L39,14 L42,17 L45,15 L47,20 L45,23 L47,27 L46,30 L48,34 L45,37 L43,41 L40,44 L36,46 L32,47 L28,46 L24,47 L21,44 L18,41 L16,37 L14,33 L15,29 L13,25 L16,21 L18,17 L22,15 L26,13 Z"/>
+					<circle cx="30" cy="30" r="3" fill="#e05c5c"/>
+				</svg>
+				<span class="legend-label">Area reachable from the stadium in ~60 minutes by public transit</span>
+			</div>
+			<div class="sort-bar">
+				<span class="sort-label">Sort by</span>
+				<div class="sort-buttons" role="group" aria-label="Sort stadiums by">
+					<button
+						class:active={sortKey === 'name'}
+						onclick={() => (sortKey = 'name')}
+					>Stadium name</button>
+					<button
+						class:active={sortKey === 'pop'}
+						onclick={() => (sortKey = 'pop')}
+					>Population reached</button>
+					<button
+						class:active={sortKey === 'pct'}
+						onclick={() => (sortKey = 'pct')}
+					>% of population within 25km</button>
 				</div>
 			</div>
 		</div>
@@ -118,7 +116,7 @@
 	<!-- Monterrey note -->
 	<div class="monterrey-note">
 		<div class="monterrey-note-inner">
-			<p><strong>Note on Monterrey:</strong> Estadio BBVA (Guadalupe, NL) is not included in this analysis. No public GTFS data exists for any transit agency in the Monterrey metropolitan area, making a reliable transit isochrone impossible to compute at this time.</p>
+			<p><strong>Note on Monterrey:</strong> Estadio BBVA (Guadalupe, NL) is not included in this analysis due to not being able to find GTFS for transit agencies in the region.</p>
 		</div>
 	</div>
 
@@ -236,20 +234,24 @@
 
 	/* ── Controls bar (legend + sort on one row) ── */
 
-	.controls-bar-inner {
-		grid-column: 1 / -1;
+	.controls-bar {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		flex-wrap: wrap;
 		gap: 12px;
-		padding: 28px 0 16px;
+		padding: 28px 24px 16px;
+		max-width: 1600px;
+		margin: 0 auto;
+		box-sizing: border-box;
 	}
 
 	.legend-item {
 		display: flex;
 		align-items: center;
 		gap: 8px;
+		flex: 1;
+		min-width: 0;
 	}
 
 	.legend-svg {
@@ -264,11 +266,11 @@
 		color: var(--brandWhite);
 	}
 
-	.sort-bar-inner {
+	.sort-bar {
 		display: flex;
 		align-items: center;
-		gap: 14px;
-		flex-wrap: wrap;
+		gap: 10px;
+		min-width: 0;
 	}
 
 	.sort-label {
@@ -285,19 +287,60 @@
 		overflow: hidden;
 		padding: 3px;
 		gap: 2px;
+		width: 496px;
 	}
 
 	.sort-buttons button {
 		background: transparent;
 		border: none;
-		padding: 6px 14px;
+		padding: 6px 10px;
 		font-family: OpenSans, sans-serif;
 		font-size: 13px;
 		color: var(--brandLightGreen);
 		cursor: pointer;
 		border-radius: 4px;
 		transition: background-color 0.12s, color 0.12s;
+		flex: 1;
+		text-align: center;
 		white-space: nowrap;
+	}
+
+
+	@media (max-width: 900px) {
+		.controls-bar {
+			flex-direction: column;
+			align-items: center;
+		}
+		.sort-bar {
+			width: 496px;
+			max-width: 100%;
+			justify-content: center;
+		}
+		.sort-bar {
+			flex-direction: column;
+			align-items: center;
+		}
+		.sort-buttons {
+			width: 100%;
+		}
+	}
+
+	@media (max-width: 700px) {
+		.controls-bar {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+		.sort-bar {
+			width: 100%;
+		}
+		.sort-buttons {
+			width: 100%;
+		}
+		.sort-buttons button {
+			font-size: clamp(8px, 2.8vw, 13px);
+			padding: 6px 2px;
+			white-space: normal;
+		}
 	}
 
 	.sort-buttons button:hover {
@@ -314,7 +357,7 @@
 	/* ── Cards grid ── */
 	.cards-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(500px, 500px));
+		grid-template-columns: repeat(auto-fill, 500px);
 		gap: 20px;
 		justify-content: center;
 	}
@@ -350,14 +393,17 @@
 
 	/* ── Responsive ── */
 	@media screen and (max-width: 700px) {
+		.hero-logo img {
+			height: 36px;
+		}
 		.hero h1 {
-			font-size: 34px;
+			font-size: 38px;
 		}
 		.hero p {
 			font-size: 17px;
 		}
 		.cards-grid {
-			grid-template-columns: 1fr;
+			grid-template-columns: min(500px, 100%);
 		}
 		.controls-bar-inner {
 			flex-direction: column;
