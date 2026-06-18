@@ -46,24 +46,24 @@
 
 <svelte:head>
 
-	<title>Arc diagram of Bloor-Danforth Subway (Line 2) trips | School of Cities</title>
+	<title>Transit-Oriented Stadiums</title>
 
-	<meta name="description" content="Charting out AM peak trips in Toronto with R and data from the Transportation Tomorrow Survey.">
+	<meta name="description" content="How well are FIFA World Cup 2026 stadiums connected to their host cities by public transit?">
 	<meta name="author" content="Jeff Allen">
 
-	<meta property="og:title" content="Arc diagram of Bloor-Danforth Subway (Line 2) trips | School of Cities" />
-	<meta property="og:description" content="Charting out AM peak trips in Toronto with R and data from the Transportation Tomorrow Survey." />
+	<meta property="og:title" content="Transit-Oriented Stadiums | School of Cities" />
+	<meta property="og:description" content="How well are FIFA World Cup 2026 stadiums connected to their host cities by public transit?" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://schoolofcities.github.io/transportation-tomorrow-survey/line-2-trips/" />
-	<meta property="og:image" content="https://raw.githubusercontent.com/schoolofcities/ggh-transport-geography/main/static/web-card-line2.png" />
+	<meta property="og:url" content="https://schoolofcities.github.io/fifa-world-cup-2026/transit-oriented-stadiums" />
+	<meta property="og:image" content="https://raw.githubusercontent.com/schoolofcities/fifa-world-cup-2026/main/static/web-card-transit-oriented-stadiums.png" />
 	<meta property="og:locale" content="en_CA">
 
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:site" content="https://schoolofcities.github.io/transportation-tomorrow-survey/line-2-trips/" />
+	<meta name="twitter:site" content="https://schoolofcities.github.io/fifa-world-cup-2026/transit-oriented-stadiums" />
 	<meta name="twitter:creator" content="@JeffAllenMaps" />
-	<meta name="twitter:title" content="Arc diagram of Bloor-Danforth Subway (Line 2) trips | School of Cities" />
-	<meta name="twitter:description" content="Charting out AM peak trips in Toronto with R and data from the Transportation Tomorrow Survey." />
-	<meta name="twitter:image" content="https://raw.githubusercontent.com/schoolofcities/ggh-transport-geography/main/static/web-card-line2.png" /> 
+	<meta name="twitter:title" content="Transit-Oriented Stadiums | School of Cities" />
+	<meta name="twitter:description" content="How well are FIFA World Cup 2026 stadiums connected to their host cities by public transit?" />
+	<meta name="twitter:image" content="https://raw.githubusercontent.com/schoolofcities/fifa-world-cup-2026/main/static/web-card-transit-oriented-stadiums.png" /> 
 
 </svelte:head>
 
