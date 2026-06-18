@@ -124,7 +124,7 @@
 					<button
 						class:active={sortKey === 'pct'}
 						onclick={() => (sortKey = 'pct')}
-					>% of population within 25km</button>
+					>% of population within 25 km</button>
 				</div>
 			</div>
 		</div>
@@ -320,6 +320,7 @@
 		padding: 3px;
 		gap: 2px;
 		width: 496px;
+		margin-right: 4px;
 	}
 
 	.sort-buttons button {
