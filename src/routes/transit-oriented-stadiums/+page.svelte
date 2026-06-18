@@ -1,8 +1,8 @@
 <script>
 	import '$assets/global-styles.css';
-	import IconRow from '$lib/IconRow.svelte';
-	import StadiumCard from '$lib/StadiumCard.svelte';
-	import MethodsSection from '$lib/MethodsSection.svelte';
+	import IconRow from './lib/IconRow.svelte';
+	import StadiumCard from './lib/StadiumCard.svelte';
+	import MethodsSection from './lib/MethodsSection.svelte';
 	import { base } from '$app/paths';
 	import { flip } from 'svelte/animate';
 
@@ -10,7 +10,7 @@
 
 	const countryName = { USA: 'USA', MEX: 'Mexico', CAN: 'Canada' };
 
-	import { stadiumBase } from '$lib/stadiums.js';
+	import { stadiumBase } from './lib/stadiums.js';
 
 	const stadiums = $derived(
 		stadiumBase.map((s) => ({
@@ -58,10 +58,10 @@
 			<div class="hero-rule"></div>
 			<h1>Transit-Oriented Stadiums</h1>
 			<p class="hero-lede">
-				How connected are FIFA World Cup 2026 stadiums to their cities via public transit?
+				How well are FIFA World Cup 2026 stadiums connected to their host cities by public transit?
 			</p><br>
 			<p>
-				We mapped how fare you can travel in 60-minute by public transit around every stadium. Then we estimated how much of each metro's population lives within this area. The maps and data show that cities vary widely in how connected their stadiums are to the rest of the city via public transit.
+				We mapped how far you can travel in 60 minutes by public transit around every stadium. Then we estimated how much of each metro's population lives within this area. The maps and data show that cities vary widely in how connected their stadiums are to the rest of the city via public transit.
 			</p>
 			<div class="hero-byline">
 				<span class="hero-author">By Jeff Allen</span>
@@ -106,7 +106,7 @@
 		<!-- Stadium cards -->
 		<div class="cards-grid">
 			{#each sorted as s (s.id)}
-				<div animate:flip={{ duration: 400 }}>
+				<div class="card-wrapper" animate:flip={{ duration: 400 }}>
 					<StadiumCard stadium={s} {countryName} />
 				</div>
 			{/each}
@@ -116,11 +116,17 @@
 	<!-- Monterrey note -->
 	<div class="monterrey-note">
 		<div class="monterrey-note-inner">
-			<p><strong>Note on Monterrey:</strong> Estadio BBVA (Guadalupe, NL) is not included in this analysis due to not being able to find GTFS for transit agencies in the region.</p>
+			<p><strong>Note on Monterrey:</strong> Estadio BBVA (Guadalupe, NL) is not included in this analysis as we were unable to find GTFS for transit agencies in the region.</p>
 		</div>
 	</div>
 
 	<MethodsSection />
+	<div class="footer-icons">
+		<IconRow duration={5} />
+		<a href="https://schoolofcities.utoronto.ca" target="_blank" rel="noopener" class="footer-logo">
+			<img src="{base}/sofc-uoft-logo-white.svg" alt="School of Cities / University of Toronto" />
+		</a>
+	</div>
 </main>
 
 <style>
@@ -360,6 +366,12 @@
 		grid-template-columns: repeat(auto-fill, 500px);
 		gap: 20px;
 		justify-content: center;
+		align-items: stretch;
+	}
+
+	.card-wrapper {
+		display: flex;
+		flex-direction: column;
 	}
 
 	/* ── Monterrey note ── */
@@ -389,6 +401,29 @@
 		font-family: OpenSansBold, sans-serif;
 		font-weight: normal;
 		color: var(--brandLightGreen);
+	}
+
+	/* ── Footer icons ── */
+	.footer-icons {
+		max-width: 700px;
+		margin: 50px auto 0;
+		padding: 0 20px;
+	}
+
+	.footer-logo {
+		display: inline-block;
+		margin-top: 56px;
+		transition: opacity 0.2s;
+	}
+
+	.footer-logo:hover {
+		opacity: 0.8;
+	}
+
+	.footer-logo img {
+		height: 45px;
+		width: auto;
+		display: block;
 	}
 
 	/* ── Responsive ── */

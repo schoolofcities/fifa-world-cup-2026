@@ -94,6 +94,7 @@
 		overflow: hidden;
 		display: flex;
 		flex-direction: column;
+		flex: 1;
 		background: var(--brandDarkGreen);
 		box-shadow: 0 4px 16px rgba(30, 55, 101, 0.12), 0 1px 4px rgba(30, 55, 101, 0.08);
 		transition: transform 0.15s, box-shadow 0.15s;

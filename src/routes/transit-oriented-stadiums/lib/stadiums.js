@@ -10,7 +10,7 @@ export const stadiumBase = [
 		metroName: 'Seattle-Tacoma-Bellevue MSA',
 		lon: -122.332245,
 		lat: 47.595097,
-		img: 'seattle.png',
+		img: 'transit-oriented-stadiums/seattle.png',
 	},
 	{
 		id: 2,
@@ -23,7 +23,7 @@ export const stadiumBase = [
 		metroName: 'San Jose-Sunnyvale-Santa Clara MSA',
 		lon: -121.969688,
 		lat: 37.403263,
-		img: 'santa-clara.png',
+		img: 'transit-oriented-stadiums/santa-clara.png',
 	},
 	{
 		id: 3,
@@ -36,7 +36,7 @@ export const stadiumBase = [
 		metroName: 'Los Angeles-Long Beach-Anaheim MSA',
 		lon: -118.33963,
 		lat: 33.953587,
-		img: 'inglewood.png',
+		img: 'transit-oriented-stadiums/inglewood.png',
 	},
 	{
 		id: 4,
@@ -49,7 +49,7 @@ export const stadiumBase = [
 		metroName: 'Kansas City MSA',
 		lon: -94.484566,
 		lat: 39.048786,
-		img: 'kansas-city.png',
+		img: 'transit-oriented-stadiums/kansas-city.png',
 	},
 	{
 		id: 5,
@@ -62,7 +62,7 @@ export const stadiumBase = [
 		metroName: 'Boston-Cambridge-Newton MSA',
 		lon: -71.264709,
 		lat: 42.090908,
-		img: 'boston.png',
+		img: 'transit-oriented-stadiums/boston.png',
 	},
 	{
 		id: 6,
@@ -75,7 +75,7 @@ export const stadiumBase = [
 		metroName: 'Philadelphia-Camden-Wilmington MSA',
 		lon: -75.168098,
 		lat: 39.900898,
-		img: 'philly.png',
+		img: 'transit-oriented-stadiums/philly.png',
 	},
 	{
 		id: 7,
@@ -88,7 +88,7 @@ export const stadiumBase = [
 		metroName: 'Atlanta-Sandy Springs-Roswell MSA',
 		lon: -84.401993,
 		lat: 33.755489,
-		img: 'atlanta.png',
+		img: 'transit-oriented-stadiums/atlanta.png',
 	},
 	{
 		id: 8,
@@ -101,7 +101,7 @@ export const stadiumBase = [
 		metroName: 'Dallas-Fort Worth-Arlington MSA',
 		lon: -97.093628,
 		lat: 32.747841,
-		img: 'dallas.png',
+		img: 'transit-oriented-stadiums/dallas.png',
 	},
 	{
 		id: 9,
@@ -114,7 +114,7 @@ export const stadiumBase = [
 		metroName: 'Houston-The Woodlands-Sugar Land MSA',
 		lon: -95.411667,
 		lat: 29.68486,
-		img: 'houston.png',
+		img: 'transit-oriented-stadiums/houston.png',
 	},
 	{
 		id: 10,
@@ -127,7 +127,7 @@ export const stadiumBase = [
 		metroName: 'Miami-Fort Lauderdale-West Palm Beach MSA',
 		lon: -80.239311,
 		lat: 25.95796,
-		img: 'miami.png',
+		img: 'transit-oriented-stadiums/miami.png',
 	},
 	{
 		id: 11,
@@ -140,7 +140,7 @@ export const stadiumBase = [
 		metroName: 'New York-Newark-Jersey City MSA',
 		lon: -74.072503,
 		lat: 40.81283,
-		img: 'new-york.png',
+		img: 'transit-oriented-stadiums/new-york.png',
 	},
 	{
 		id: 12,
@@ -153,7 +153,7 @@ export const stadiumBase = [
 		metroName: 'Zona Metropolitana de la Ciudad de México',
 		lon: -99.147709,
 		lat: 19.301696,
-		img: 'mexico-city.png',
+		img: 'transit-oriented-stadiums/mexico-city.png',
 	},
 	{
 		id: 14,
@@ -166,7 +166,7 @@ export const stadiumBase = [
 		metroName: 'Zona Metropolitana de Guadalajara',
 		lon: -103.4628,
 		lat: 20.6817,
-		img: 'guadalajara.png',
+		img: 'transit-oriented-stadiums/guadalajara.png',
 	},
 	{
 		id: 15,
@@ -179,7 +179,7 @@ export const stadiumBase = [
 		metroName: 'Toronto Census Metropolitan Area',
 		lon: -79.418617,
 		lat: 43.633335,
-		img: 'toronto.png',
+		img: 'transit-oriented-stadiums/toronto.png',
 	},
 	{
 		id: 16,
@@ -192,6 +192,6 @@ export const stadiumBase = [
 		metroName: 'Vancouver Census Metropolitan Area',
 		lon: -123.112404,
 		lat: 49.276684,
-		img: 'vancouver.png',
+		img: 'transit-oriented-stadiums/vancouver.png',
 	},
 ];

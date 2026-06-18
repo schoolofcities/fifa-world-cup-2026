@@ -3,7 +3,7 @@ export const prerender = true;
 import { base } from '$app/paths';
 
 export async function load({ fetch }) {
-	const res = await fetch(`${base}/population_matrix_long.csv`);
+	const res = await fetch(`${base}/transit-oriented-stadiums/population_matrix_long.csv`);
 	const text = await res.text();
 
 	const lines = text.trim().split('\n').slice(1); // skip header
