@@ -91,7 +91,7 @@
 				<span class="legend-item">
 					<span class="swatch"></span>
 					<svg class="legend-bike-icon target" viewBox="0 -960 960 960" aria-hidden="true"><path d={bikePath} /></svg>
-					Bike Share trips on {shortDateLabel}
+					Toronto Bike Share trips on {shortDateLabel}
 				</span>
 				<span class="legend-item">
 					<span class="swatch dashed"></span>
