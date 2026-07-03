@@ -26,12 +26,12 @@
 </script>
 
 <svelte:head>
-	<title>Bike Share activity during World Cup match days</title>
+	<title>Toronto Bike Share activity during World Cup match days</title>
 
 	<meta name="description" content="How did Bike Share activity in Toronto change on FIFA World Cup 2026 match days, compared to a typical day?">
 	<meta name="author" content="Jeff Allen">
 
-	<meta property="og:title" content="Bike Share activity during World Cup match days | School of Cities" />
+	<meta property="og:title" content="Toronto Bike Share activity during World Cup match days | School of Cities" />
 	<meta property="og:description" content="How did Bike Share activity in Toronto change on FIFA World Cup 2026 match days, compared to a typical day?" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://schoolofcities.github.io/fifa-world-cup-2026/bike-share-toronto" />
@@ -41,7 +41,7 @@
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:site" content="https://schoolofcities.github.io/fifa-world-cup-2026/bike-share-toronto" />
 	<meta name="twitter:creator" content="@JeffAllenMaps" />
-	<meta name="twitter:title" content="Bike Share activity during World Cup match days | School of Cities" />
+	<meta name="twitter:title" content="Toronto Bike Share activity during World Cup match days | School of Cities" />
 	<meta name="twitter:description" content="How did Bike Share activity in Toronto change on FIFA World Cup 2026 match days, compared to a typical day?" />
 	<meta name="twitter:image" content="https://raw.githubusercontent.com/schoolofcities/fifa-world-cup-2026/main/static/web-card-bike-share.png" />
 </svelte:head>
