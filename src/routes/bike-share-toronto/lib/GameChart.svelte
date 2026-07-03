@@ -208,6 +208,8 @@
 		border-radius: 12px;
 		padding: 24px 24px 14px;
 		border: 1px solid var(--grid);
+		min-width: 0;
+		overflow: hidden;
 	}
 	.card-header {
 		display: flex;
@@ -216,6 +218,7 @@
 		flex-wrap: wrap;
 		gap: 12px;
 		margin-bottom: 16px;
+		min-width: 0;
 	}
 	.card-title {
 		font-family: TradeGothicBold, sans-serif;
@@ -379,5 +382,25 @@
 		color: var(--text-secondary);
 		font-weight: 600;
 		margin-bottom: 3px;
+	}
+
+	@media screen and (max-width: 480px) {
+		.card {
+			padding: 18px 16px 10px;
+		}
+		.card-title {
+			font-size: 26px;
+		}
+		.card-sub {
+			font-size: 15px;
+		}
+		.legend-item {
+			white-space: normal;
+			font-size: 17px;
+		}
+		.legend-bike-icon {
+			width: 15px;
+			height: 15px;
+		}
 	}
 </style>
