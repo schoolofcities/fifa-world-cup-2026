@@ -170,7 +170,7 @@
 	.hero h1 {
 		font-family: TradeGothicBold, sans-serif;
 		font-size: 55px;
-		line-height: 1.0;
+		line-height: 1.1;
 		color: var(--brandWhite);
 		margin: 0 0 32px;
 		padding: 0;

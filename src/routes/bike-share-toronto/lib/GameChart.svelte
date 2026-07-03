@@ -47,23 +47,33 @@
 
 	let hoverIdx = $state(null);
 	let svgEl = $state(null);
+	let tooltipEl = $state(null);
 	let tooltipLeft = $state(0);
 
 	const hoverRow = $derived(hoverIdx === null ? null : chart.rows[hoverIdx]);
 	const hoverX = $derived(hoverIdx === null ? 0 : chart.xAt(hoverIdx));
 
-	function onEnter(i) {
-		hoverIdx = i;
+	function positionTooltip(i) {
 		if (!svgEl) return;
 		const svgRect = svgEl.getBoundingClientRect();
 		const scale = svgRect.width / W;
 		const px = chart.xAt(i) * scale;
-		tooltipLeft = Math.min(px + 10, svgRect.width - 140);
+		const tooltipWidth = tooltipEl?.offsetWidth ?? 160;
+		tooltipLeft = Math.min(px + 10, Math.max(0, svgRect.width - tooltipWidth - 4));
+	}
+
+	function onEnter(i) {
+		hoverIdx = i;
+		positionTooltip(i);
 	}
 
 	function onLeave() {
 		hoverIdx = null;
 	}
+
+	$effect(() => {
+		if (hoverIdx !== null && tooltipEl) positionTooltip(hoverIdx);
+	});
 </script>
 
 <div class="card">
@@ -193,10 +203,10 @@
 		{#if hoverRow}
 			{@const diff = hoverRow.target - hoverRow.baseline}
 			{@const pct = (diff / hoverRow.baseline) * 100}
-			<div class="tooltip" style="opacity: 1; left: {tooltipLeft}px; top: 10px;">
+			<div class="tooltip" bind:this={tooltipEl} style="opacity: 1; left: {tooltipLeft}px; top: 10px;">
 				<div class="t-time">{hoverRow.time_start}&ndash;{hoverRow.time_end}</div>
-				<div class="t-row"><span class="t-swatch" style="background:var(--series-target-line)"></span>{shortDateLabel}: {hoverRow.target.toFixed(1)} trips/min</div>
-				<div class="t-row"><span class="t-swatch" style="background:var(--series-baseline-line)"></span>Baseline: {hoverRow.baseline.toFixed(1)} trips/min</div>
+				<div class="t-row"><span class="t-swatch" style="background:var(--series-target-line)"></span>{shortDateLabel}: {Math.round(hoverRow.target)} trips/min</div>
+				<div class="t-row"><span class="t-swatch" style="background:var(--series-baseline-line)"></span>Baseline: {Math.round(hoverRow.baseline)} trips/min</div>
 				<div class="t-row" style="color:var(--text-secondary)">{diff >= 0 ? '+' : ''}{diff.toFixed(1)} ({pct >= 0 ? '+' : ''}{pct.toFixed(1)}%)</div>
 			</div>
 		{/if}
@@ -385,23 +395,56 @@
 		margin-bottom: 3px;
 	}
 
+	@media screen and (max-width: 1000px) {
+		.card {
+			padding: 20px 20px 12px;
+		}
+		.card-title {
+			font-size: 19px;
+		}
+		.card-sub {
+			font-size: 11px;
+		}
+		.legend-item {
+			font-size: 12px;
+		}
+		.legend-bike-icon {
+			width: 12px;
+			height: 12px;
+		}
+		.legend-item .swatch {
+			width: 22px;
+			height: 2px;
+		}
+		.legend-item .swatch.dashed {
+			height: 1.5px;
+		}
+	}
+
 	@media screen and (max-width: 480px) {
 		.card {
 			padding: 18px 16px 10px;
 		}
 		.card-title {
-			font-size: 23px;
+			font-size: 13px;
 		}
 		.card-sub {
-			font-size: 15px;
+			font-size: 8px;
 		}
 		.legend-item {
 			white-space: normal;
-			font-size: 17px;
+			font-size: 9px;
 		}
 		.legend-bike-icon {
-			width: 15px;
-			height: 15px;
+			width: 9px;
+			height: 9px;
+		}
+		.legend-item .swatch {
+			width: 16px;
+			height: 1.5px;
+		}
+		.legend-item .swatch.dashed {
+			height: 1px;
 		}
 	}
 </style>
