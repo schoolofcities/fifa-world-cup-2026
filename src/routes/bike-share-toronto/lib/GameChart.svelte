@@ -129,7 +129,7 @@
 				<text class="tick-label" x={MARGIN.left - 6} y={(chart.y(v) + 3).toFixed(2)} text-anchor="end">{v.toLocaleString()}</text>
 			{/each}
 			<text class="axis-title" x="4" y={MARGIN.top + PLOT_H / 2 - (17 * (scopeLines.length + 2)) / 2} text-anchor="start">
-				<tspan x="4" dy="0">Bike share trips</tspan>
+				<tspan x="4" dy="0">Bike Share trips</tspan>
 				<tspan x="4" dy="17">per minute</tspan>
 				{#each scopeLines as line}
 					<tspan x="4" dy="17">{line}</tspan>
@@ -324,10 +324,10 @@
 		stroke-dasharray: 2 3;
 	}
 	.game-band-label .ball-icon {
-		fill: var(--text-muted);
+		fill: rgba(255, 255, 255, 0.35);
 	}
 	.game-band-label-text {
-		fill: var(--text-muted);
+		fill: rgba(255, 255, 255, 0.35);
 		font-family: OpenSans, sans-serif;
 		font-size: 12px;
 	}
