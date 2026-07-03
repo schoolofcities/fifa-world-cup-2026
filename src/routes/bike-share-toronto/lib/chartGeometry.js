@@ -2,7 +2,7 @@ import { timeToMinutes } from './data.js';
 
 export const W = 960;
 export const H = 340;
-export const MARGIN = { top: 18, right: 16, bottom: 34, left: 116 };
+export const MARGIN = { top: 18, right: 16, bottom: 52, left: 116 };
 export const PLOT_W = W - MARGIN.left - MARGIN.right;
 export const PLOT_H = H - MARGIN.top - MARGIN.bottom;
 
@@ -116,7 +116,7 @@ export function buildChart(game) {
 	const matchEnd = kickoffMin + 120;
 
 	const yTicks = [];
-	const yTickStep = yMax > 60 ? 20 : 10;
+	const yTickStep = yMax > 60 ? 20 : yMax > 10 ? 10 : 5;
 	for (let v = 0; v <= yMax; v += yTickStep) yTicks.push(v);
 
 	const xTickEvery = 6; // hourly, since 10-min buckets
