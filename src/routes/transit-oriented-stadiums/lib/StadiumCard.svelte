@@ -78,7 +78,7 @@
 							/>
 							<text class="donut-text" x="36" y="36">{fmtPct(s.pctInIsochrone)}</text>
 						</svg>
-						<span class="stat-label">of residents<br/>within 25km</span>
+						<span class="stat-label">of residents<br/>within 25 km</span>
 					</div>
 				{:else}
 					<span class="stat-value">—</span>
