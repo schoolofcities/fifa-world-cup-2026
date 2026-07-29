@@ -1,7 +1,7 @@
 export const prerender = true;
 
 import { base } from '$app/paths';
-import { parseGames } from './lib/data.js';
+import { parseGames } from '$lib/bikeshare/parseGames.js';
 
 const FILES = {
 	all: 'bike-share-world-cup.csv',

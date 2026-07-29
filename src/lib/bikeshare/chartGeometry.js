@@ -1,4 +1,4 @@
-import { timeToMinutes } from './data.js';
+import { timeToMinutes } from './parseGames.js';
 
 export const W = 960;
 export const H = 340;

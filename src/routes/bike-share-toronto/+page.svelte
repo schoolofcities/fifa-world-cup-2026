@@ -1,9 +1,11 @@
 <script>
 	import '$assets/global-styles.css';
-	import { base } from '$app/paths';
-	import IconRow from './lib/IconRow.svelte';
-	import GameChart from './lib/GameChart.svelte';
-	import MethodsSection from './lib/MethodsSection.svelte';
+
+	import Hero from '$lib/components/Hero.svelte';
+	import FooterIcons from '$lib/components/FooterIcons.svelte';
+	import MethodsSection from '$lib/components/MethodsSection.svelte';
+	import GameChart from '$lib/components/bikeshare/GameChart.svelte';
+	import { bikeShareIcons } from '$lib/icons.js';
 
 	let { data } = $props();
 
@@ -49,31 +51,20 @@
 <main class="viz-root">
 	<!-- Hero header -->
 	<div class="hero">
-		<div class="hero-inner">
-			<div class="hero-logo">
-				<a href="https://schoolofcities.utoronto.ca" target="_blank" rel="noopener">
-					<img src="{base}/sofc-uoft-logo-white.svg" alt="School of Cities / University of Toronto" />
-				</a>
-			</div>
-			<div class="hero-icons">
-				<IconRow duration={5} />
-			</div>
-			<div class="hero-rule"></div>
-			<h1>Bike Share activity during World Cup match days</h1>
-			<p class="hero-lede">
-				How did Bike Share activity change around Toronto's World Cup matches?
-			</p><br>
+		<Hero
+			icons={bikeShareIcons}
+			title="Bike Share activity during World Cup match days"
+			lede="How did Bike Share activity change around Toronto's World Cup matches?"
+			date="07/2026"
+			titleSize="55px"
+			titleSizeMobile="34px"
+			titleLineHeight="1.1"
+			trailingBreaks={2}
+		>
 			<p>
 				We estimated the number of Bike Share trips before, during, and after FIFA World Cup 2026 matches in Toronto. The charts below show spikes of activity after matches end, especially for Bike Share stations near the stadium.
 			</p>
-			
-			<div class="hero-byline">
-				<span class="hero-author">By Jeff Allen</span>
-				<span class="hero-byline-sep">&middot;&middot;&middot;</span>
-				<span class="hero-date">07/2026</span>
-			</div>
-			<br><br>
-		</div>
+		</Hero>
 	</div>
 
 	<!-- Charts section -->
@@ -93,14 +84,42 @@
 		</div>
 	</div>
 
-	<MethodsSection />
+	<MethodsSection>
+		<h3>Data collection</h3>
+		<p>Station-level bike availability was collected from <a href="https://open.toronto.ca/dataset/bike-share-toronto/" target="_blank" rel="noopener">Toronto Bike Share</a>'s public GBFS (General Bikeshare Feed Specification) station_status feed, pulled every 5 seconds. Each download compared the current state of every station against its last recorded state; a new row was only written when a station's status changed, producing an event-driven log dataset, rather than fixed-interval snapshots.</p>
+
+		<h3>Trip estimation</h3>
+		<p>The source data does not report individual trips directly; it only reports the number of bikes currently available at each station. Number of trips were inferred by comparing every consecutive pair of observations at each station and summing the magnitude of every decrease in available bikes (i.e. this assumes a trip is started if a Bike Share station decreases its number of bikes in a 5 second window). Two corrections were applied to reduce potential sources of over-counting:</p>
+
+		<ol>
+			<li>Bikes taken out of service: a drop in available bikes that coincided with an equal increase in the station's disabled-bike count (e.g. a bike flagged for maintenance) was excluded, since this reflects an operational action rather than a rider trip.</li>
+			<li>Short return events: a single bike departure immediately reversed by a return within 30 seconds at the same station was excluded, since this is more consistent with a false start (e.g. re-docking a bike that has a broken seat) than a real trip.</li>
+		</ol>
+
+		<p>Checking against Bike Share Toronto's own published daily estimates for earlier dates, as well as comparing with open-source tools such as <a href="https://github.com/mjarrett/bikeraccoonAPI" target="_blank" rel="noopener">BikeRaccoon</a>, showed our method to have similar results to these other sources, but not precisely the same numbers. Remaining differences could reflect rebalancing-truck movements and definitional differences in what counts as a completed trip. Therefore, data in the charts above should be treated as a relative, comparative measure rather than an exact super precise trip count.</p>
+
+		<h3>Match-day windows</h3>
+		<p>For each of the six 2026 FIFA World Cup matches in Toronto, activity was extracted for an 8-hour window spanning 3 hours before kickoff to 3 hours after, with an assumed 2-hour match duration. (None of the games went to extra time, but the Portugal-Croatia game had substantial added time at the end of the second half that might have pushed beyond the 2 hour window. It was an exciting game!)</p>
+
+		<h3>Baseline comparison</h3>
+		<p>For each date of interest, activity was compared to a baseline defined as the average activity in the same time-of-day windows across the six most recent occurrences of the same day of the week (e.g. a Thursday is compared to the prior six Thursdays). This controls for typical weekday/weekend demand patterns so that deviations reflect the specific event being studied rather than routine day-of-week variation.</p>
+
+		<h3>Spatial filtering</h3>
+		<p>Three versions of the World Cup match-day dataset were produced:</p>
+
+		<ul>
+			<li>System-wide &mdash; all bike share stations included.</li>
+			<li>1 km radius &mdash; restricted to the 27 stations within 1 kilometer of a fixed reference point of the stadium.</li>
+			<li>2 km radius &mdash; restricted to the 91 stations within 2 kilometers of the same point.</li>
+		</ul>
+		<br>
+
+		<p>Station distances were computed by projecting station coordinates and the reference point into UTM Zone 17N (EPSG:32617) and calculating straight-line (Euclidean) distance in meters.</p>
+	</MethodsSection>
 
 	<div class="footer-icons">
 		<div class="footer-icons-inner">
-			<IconRow duration={5} />
-			<a href="https://schoolofcities.utoronto.ca" target="_blank" rel="noopener" class="footer-logo">
-				<img src="{base}/sofc-uoft-logo-white.svg" alt="School of Cities / University of Toronto" />
-			</a>
+			<FooterIcons icons={bikeShareIcons} />
 		</div>
 	</div>
 </main>
@@ -131,82 +150,6 @@
 		padding-bottom: 60px;
 		padding-left: 20px;
 		padding-right: 20px;
-	}
-
-	.hero-inner {
-		max-width: 700px;
-		margin: 0 auto;
-	}
-
-	.hero-logo {
-		margin-bottom: 82px;
-	}
-
-	.hero-logo a {
-		display: inline-block;
-		transition: opacity 0.2s;
-	}
-
-	.hero-logo a:hover {
-		opacity: 0.8;
-	}
-
-	.hero-logo img {
-		height: 45px;
-		width: auto;
-		display: block;
-	}
-
-	.hero-icons {
-		margin-bottom: 48px;
-	}
-
-	.hero-rule {
-		width: 48px;
-		height: 4px;
-		background-color: var(--brandLightGreen);
-		margin-bottom: 32px;
-		border-radius: 2px;
-	}
-
-	.hero h1 {
-		font-family: TradeGothicBold, sans-serif;
-		font-size: 55px;
-		line-height: 1.1;
-		color: var(--brandWhite);
-		margin: 0 0 32px;
-		padding: 0;
-	}
-
-	.hero p {
-		font-family: OpenSans, sans-serif;
-		font-size: 19px;
-		line-height: 1.7;
-		color: var(--brandWhite);
-		margin: 0;
-		padding: 0;
-		max-width: 100%;
-	}
-
-	.hero p.hero-lede {
-		color: var(--brandYellow);
-		font-family: OpenSansBoldItalic, sans-serif;
-		font-size: 19.5px;
-	}
-
-	.hero-byline {
-		display: flex;
-		align-items: center;
-		gap: 8px;
-		margin-top: 24px;
-		font-family: OpenSans, sans-serif;
-		font-size: 13px;
-		color: rgba(255, 255, 255, 0.55);
-		letter-spacing: 0.03em;
-	}
-
-	.hero-byline-sep {
-		opacity: 0.4;
 	}
 
 	/* ── Charts section ── */
@@ -270,33 +213,8 @@
 		margin: 0 auto;
 	}
 
-	.footer-logo {
-		display: inline-block;
-		margin-top: 56px;
-		transition: opacity 0.2s;
-	}
-
-	.footer-logo:hover {
-		opacity: 0.8;
-	}
-
-	.footer-logo img {
-		height: 45px;
-		width: auto;
-		display: block;
-	}
-
 	/* ── Responsive ── */
 	@media screen and (max-width: 700px) {
-		.hero-logo img {
-			height: 36px;
-		}
-		.hero h1 {
-			font-size: 34px;
-		}
-		.hero p {
-			font-size: 17px;
-		}
 		.filter-bar {
 			flex-direction: column;
 			width: 100%;
