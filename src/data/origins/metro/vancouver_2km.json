@@ -1,0 +1,152 @@
+[
+  {
+    "region": "Vancouver CSD",
+    "lat": 49.24909,
+    "lon": -123.10785,
+    "pct": 75.832
+  },
+  {
+    "region": "Burnaby",
+    "lat": 49.24607,
+    "lon": -122.96508,
+    "pct": 8.128
+  },
+  {
+    "region": "Surrey",
+    "lat": 49.11671,
+    "lon": -122.78429,
+    "pct": 4.783
+  },
+  {
+    "region": "Richmond",
+    "lat": 49.16455,
+    "lon": -123.10655,
+    "pct": 2.501
+  },
+  {
+    "region": "North Vancouver",
+    "lat": 49.36113,
+    "lon": -123.01093,
+    "pct": 1.947
+  },
+  {
+    "region": "Coquitlam",
+    "lat": 49.29732,
+    "lon": -122.77151,
+    "pct": 1.563
+  },
+  {
+    "region": "New Westminster",
+    "lat": 49.20849,
+    "lon": -122.91866,
+    "pct": 1.135
+  },
+  {
+    "region": "Langley",
+    "lat": 49.094,
+    "lon": -122.57478,
+    "pct": 0.804
+  },
+  {
+    "region": "Delta",
+    "lat": 49.09944,
+    "lon": -123.01045,
+    "pct": 0.676
+  },
+  {
+    "region": "West Vancouver",
+    "lat": 49.36845,
+    "lon": -123.19302,
+    "pct": 0.564
+  },
+  {
+    "region": "Port Coquitlam",
+    "lat": 49.25334,
+    "lon": -122.76192,
+    "pct": 0.562
+  },
+  {
+    "region": "Maple Ridge",
+    "lat": 49.26183,
+    "lon": -122.5162,
+    "pct": 0.516
+  },
+  {
+    "region": "Port Moody",
+    "lat": 49.29794,
+    "lon": -122.87,
+    "pct": 0.317
+  },
+  {
+    "region": "Metro Vancouver A",
+    "lat": 49.45866,
+    "lon": -122.85183,
+    "pct": 0.305
+  },
+  {
+    "region": "Pitt Meadows",
+    "lat": 49.27195,
+    "lon": -122.66379,
+    "pct": 0.178
+  },
+  {
+    "region": "White Rock",
+    "lat": 49.02576,
+    "lon": -122.80585,
+    "pct": 0.061
+  },
+  {
+    "region": "Tsawwassen",
+    "lat": 49.04359,
+    "lon": -123.09855,
+    "pct": 0.043
+  },
+  {
+    "region": "Capilano 5",
+    "lat": 49.32161,
+    "lon": -123.13191,
+    "pct": 0.023
+  },
+  {
+    "region": "Bowen Island",
+    "lat": 49.37332,
+    "lon": -123.37123,
+    "pct": 0.019
+  },
+  {
+    "region": "Musqueam 2",
+    "lat": 49.23013,
+    "lon": -123.20291,
+    "pct": 0.017
+  },
+  {
+    "region": "Anmore",
+    "lat": 49.34397,
+    "lon": -122.84982,
+    "pct": 0.013
+  },
+  {
+    "region": "Burrard Inlet 3",
+    "lat": 49.3094,
+    "lon": -122.97874,
+    "pct": 0.012
+  },
+  {
+    "region": "McMillan Island 6",
+    "lat": 49.17491,
+    "lon": -122.56508,
+    "pct": 0.009
+  },
+  {
+    "region": "Lions Bay",
+    "lat": 49.46264,
+    "lon": -123.23569,
+    "pct": 0.008
+  },
+  {
+    "region": "Belcarra",
+    "lat": 49.32777,
+    "lon": -122.89989,
+    "pct": 0.004
+  }
+]

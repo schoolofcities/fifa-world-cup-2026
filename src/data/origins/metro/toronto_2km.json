@@ -1,0 +1,158 @@
+[
+  {
+    "region": "Toronto CSD",
+    "lat": 43.72647,
+    "lon": -79.39053,
+    "pct": 89.128
+  },
+  {
+    "region": "Mississauga",
+    "lat": 43.5992,
+    "lon": -79.66293,
+    "pct": 2.583
+  },
+  {
+    "region": "Brampton",
+    "lat": 43.71549,
+    "lon": -79.75238,
+    "pct": 1.508
+  },
+  {
+    "region": "Vaughan",
+    "lat": 43.83665,
+    "lon": -79.5648,
+    "pct": 1.316
+  },
+  {
+    "region": "Markham",
+    "lat": 43.88124,
+    "lon": -79.29515,
+    "pct": 0.939
+  },
+  {
+    "region": "Hamilton",
+    "lat": 43.25227,
+    "lon": -79.96015,
+    "pct": 0.731
+  },
+  {
+    "region": "Oakville",
+    "lat": 43.45613,
+    "lon": -79.72309,
+    "pct": 0.642
+  },
+  {
+    "region": "Richmond Hill",
+    "lat": 43.90342,
+    "lon": -79.42735,
+    "pct": 0.602
+  },
+  {
+    "region": "Burlington",
+    "lat": 43.38174,
+    "lon": -79.84573,
+    "pct": 0.399
+  },
+  {
+    "region": "Ajax",
+    "lat": 43.86905,
+    "lon": -79.02755,
+    "pct": 0.39
+  },
+  {
+    "region": "Pickering",
+    "lat": 43.91195,
+    "lon": -79.11428,
+    "pct": 0.283
+  },
+  {
+    "region": "Milton",
+    "lat": 43.51883,
+    "lon": -79.94549,
+    "pct": 0.27
+  },
+  {
+    "region": "Caledon",
+    "lat": 43.84899,
+    "lon": -79.90228,
+    "pct": 0.181
+  },
+  {
+    "region": "Newmarket",
+    "lat": 44.04985,
+    "lon": -79.46095,
+    "pct": 0.161
+  },
+  {
+    "region": "Aurora",
+    "lat": 43.99618,
+    "lon": -79.44731,
+    "pct": 0.139
+  },
+  {
+    "region": "Whitchurch-Stouffville",
+    "lat": 44.0128,
+    "lon": -79.32332,
+    "pct": 0.106
+  },
+  {
+    "region": "Halton Hills",
+    "lat": 43.62379,
+    "lon": -79.94163,
+    "pct": 0.099
+  },
+  {
+    "region": "Georgina",
+    "lat": 44.32402,
+    "lon": -79.35843,
+    "pct": 0.094
+  },
+  {
+    "region": "New Tecumseth",
+    "lat": 44.0843,
+    "lon": -79.77837,
+    "pct": 0.085
+  },
+  {
+    "region": "Bradford West Gwillimbury",
+    "lat": 44.1198,
+    "lon": -79.61719,
+    "pct": 0.08
+  },
+  {
+    "region": "East Gwillimbury",
+    "lat": 44.1395,
+    "lon": -79.40772,
+    "pct": 0.076
+  },
+  {
+    "region": "King",
+    "lat": 43.97595,
+    "lon": -79.60898,
+    "pct": 0.064
+  },
+  {
+    "region": "Grimsby",
+    "lat": 43.17641,
+    "lon": -79.57576,
+    "pct": 0.043
+  },
+  {
+    "region": "Uxbridge",
+    "lat": 44.11681,
+    "lon": -79.18804,
+    "pct": 0.034
+  },
+  {
+    "region": "Mono",
+    "lat": 44.01948,
+    "lon": -80.06077,
+    "pct": 0.031
+  },
+  {
+    "region": "Orangeville",
+    "lat": 43.91531,
+    "lon": -80.10983,
+    "pct": 0.019
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "region": "Toronto Hamilton CMA",
+    "lat": 43.78765,
+    "lon": -79.64474,
+    "pct": 91.039
+  },
+  {
+    "region": "Ontario - GTHA",
+    "lat": 50.07805,
+    "lon": -85.53364,
+    "pct": 5.402
+  },
+  {
+    "region": "US",
+    "lat": 39.8,
+    "lon": -98.6,
+    "pct": 2.49
+  },
+  {
+    "region": "Alberta",
+    "lat": 54.93595,
+    "lon": -114.38676,
+    "pct": 0.314
+  },
+  {
+    "region": "British Columbia",
+    "lat": 54.31021,
+    "lon": -124.70372,
+    "pct": 0.287
+  },
+  {
+    "region": "Manitoba",
+    "lat": 54.68875,
+    "lon": -97.50199,
+    "pct": 0.19
+  },
+  {
+    "region": "Nova Scotia",
+    "lat": 45.15543,
+    "lon": -63.31958,
+    "pct": 0.082
+  },
+  {
+    "region": "New Brunswick",
+    "lat": 46.5877,
+    "lon": -66.311,
+    "pct": 0.073
+  },
+  {
+    "region": "Saskatchewan",
+    "lat": 54.13282,
+    "lon": -105.87179,
+    "pct": 0.058
+  },
+  {
+    "region": "Newfoundland and Labrador",
+    "lat": 52.58558,
+    "lon": -59.48557,
+    "pct": 0.041
+  },
+  {
+    "region": "Prince Edward Island",
+    "lat": 46.34748,
+    "lon": -63.22205,
+    "pct": 0.017
+  },
+  {
+    "region": "Nunavut",
+    "lat": 69.75108,
+    "lon": -85.77139,
+    "pct": 0.007
+  },
+  {
+    "region": "Northwest Territories",
+    "lat": 71.69373,
+    "lon": -121.55077,
+    "pct": 0.007
+  },
+  {
+    "region": "Yukon",
+    "lat": 63.47412,
+    "lon": -135.18791,
+    "pct": 0.007
+  }
+]
