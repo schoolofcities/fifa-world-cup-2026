@@ -83,8 +83,8 @@
 				/>
 				{#if mIdx === 0}
 					<g class="matchday-label" transform="translate({chart.x(mi).toFixed(2)}, {MARGIN.top + 4})">
-						<path class="ball-icon" transform="scale(0.013) translate(6, 950)" d={ballPath} />
-						<text class="matchday-label-text" x="14" y="9">Match day</text>
+						<path class="ball-icon" transform="scale(0.017) translate(6, 950)" d={ballPath} />
+						<text class="matchday-label-text" x="17" y="11">Match day</text>
 					</g>
 				{/if}
 			{/each}
@@ -165,14 +165,14 @@
 	}
 	.card-title {
 		font-family: TradeGothicBold, sans-serif;
-		font-size: 25px;
+		font-size: 28px;
 		font-weight: normal;
 		margin: 0 0 4px;
 		color: var(--text-primary);
 	}
 	.card-sub {
 		font-family: OpenSansBold, sans-serif;
-		font-size: 13px;
+		font-size: 15px;
 		color: var(--text-secondary);
 		margin: 0;
 	}
@@ -189,7 +189,7 @@
 		align-items: center;
 		gap: 6px;
 		font-family: OpenSans, sans-serif;
-		font-size: 13px;
+		font-size: 15px;
 		font-weight: 300;
 		color: var(--text-primary);
 		white-space: nowrap;
@@ -202,9 +202,10 @@
 	}
 	.legend-item .swatch.solid {
 		background: var(--series-main);
+		height: 4px;
 	}
 	.legend-item .swatch.dashed {
-		background: repeating-linear-gradient(to right, var(--series-pre2026) 0 5px, transparent 5px 9px);
+		background: repeating-linear-gradient(to right, var(--series-pre2026) 0 2px, transparent 2px 5px);
 		height: 2px;
 	}
 	.legend-item .swatch.dotted {
@@ -217,8 +218,8 @@
 		background: repeating-linear-gradient(to bottom, var(--matchday-line) 0 3px, transparent 3px 6px);
 	}
 	.legend-ball-icon {
-		width: 12px;
-		height: 12px;
+		width: 16px;
+		height: 16px;
 		fill: var(--text-primary);
 		flex-shrink: 0;
 	}
@@ -238,11 +239,11 @@
 	.tick-label {
 		fill: var(--text-muted);
 		font-family: OpenSans, sans-serif;
-		font-size: 12px;
+		font-size: 14px;
 	}
 	.matchday-line {
 		stroke: var(--matchday-line);
-		stroke-width: 1;
+		stroke-width: 1.75;
 		stroke-dasharray: 2 3;
 	}
 	.matchday-label .ball-icon {
@@ -251,12 +252,12 @@
 	.matchday-label-text {
 		fill: var(--text-secondary);
 		font-family: OpenSans, sans-serif;
-		font-size: 11px;
+		font-size: 16px;
 	}
 	.line-main {
 		fill: none;
 		stroke: var(--series-main);
-		stroke-width: 2.5;
+		stroke-width: 4;
 		stroke-linejoin: round;
 		stroke-linecap: round;
 	}
@@ -266,7 +267,7 @@
 		stroke-width: 2;
 		stroke-linejoin: round;
 		stroke-linecap: round;
-		stroke-dasharray: 6 5;
+		stroke-dasharray: 1.5 4;
 	}
 	.line-2025 {
 		fill: none;
@@ -291,7 +292,7 @@
 		border-radius: 8px;
 		padding: 8px 11px;
 		font-family: OpenSans, sans-serif;
-		font-size: 13px;
+		font-size: 14px;
 		color: var(--text-primary);
 		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
 		opacity: 0;
@@ -331,6 +332,13 @@
 			justify-content: flex-start;
 			max-width: none;
 		}
+		.line-pre2026,
+		.line-2025 {
+			stroke-width: 3;
+		}
+		.matchday-line {
+			stroke-width: 2.25;
+		}
 	}
 
 	@media screen and (max-width: 480px) {
@@ -339,6 +347,13 @@
 		}
 		.legend-item {
 			font-size: 11px;
+		}
+		.line-pre2026,
+		.line-2025 {
+			stroke-width: 3.5;
+		}
+		.matchday-line {
+			stroke-width: 2.5;
 		}
 	}
 </style>

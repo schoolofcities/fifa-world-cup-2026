@@ -50,9 +50,9 @@
 		--text-muted: rgba(255, 255, 255, 0.55);
 		--grid: rgba(255, 255, 255, 0.12);
 		--axis: rgba(255, 255, 255, 0.28);
-		--series-main: #ff6a1a;
+		--series-main: var(--brandYellow);
 		--series-pre2026: var(--brandLightBlue);
-		--series-2025: rgba(255, 255, 255, 0.55);
+		--series-2025: var(--brandGray);
 		--matchday-line: rgba(255, 255, 255, 0.4);
 		max-width: 1000px;
 		margin: 0 auto;
