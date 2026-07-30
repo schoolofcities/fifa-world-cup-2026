@@ -5,7 +5,7 @@
 	import FooterIcons from '$lib/components/FooterIcons.svelte';
 	import MethodsSection from '$lib/components/MethodsSection.svelte';
 	import ActivityChartsSection from '$lib/components/matchactivity/ActivityChartsSection.svelte';
-	import ZonesMapSection from '$lib/components/matchactivity/ZonesMapSection.svelte';
+	import ZoiMapsSection from '$lib/components/matchactivity/ZoiMapsSection.svelte';
 	import OriginsMapsSection from '$lib/components/matchactivity/OriginsMapsSection.svelte';
 	import { matchActivityIcons } from '$lib/icons.js';
 
@@ -16,7 +16,7 @@
 	<title>Match Activity</title>
 
 	<meta name="description" content="A closer look at match-day activity across FIFA World Cup 2026 host cities.">
-	<meta name="author" content="Jeff Allen">
+	<meta name="author" content="Yihoi Jung, Aniket Kali">
 
 	<meta property="og:title" content="Match Activity | School of Cities" />
 	<meta property="og:description" content="A closer look at match-day activity across FIFA World Cup 2026 host cities." />
@@ -26,7 +26,6 @@
 
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:site" content="https://schoolofcities.github.io/fifa-world-cup-2026/match-activity" />
-	<meta name="twitter:creator" content="@JeffAllenMaps" />
 	<meta name="twitter:title" content="Match Activity | School of Cities" />
 	<meta name="twitter:description" content="A closer look at match-day activity across FIFA World Cup 2026 host cities." />
 </svelte:head>
@@ -39,6 +38,7 @@
 			title="Match Activity"
 			lede="What did match days look like across FIFA World Cup 2026 host cities?"
 			date="2026"
+			author="Yihoi Jung, Aniket Kali"
 		>
 			<p>
 				This page is under construction. Check back soon for a closer look at match-day activity during the 2026 World Cup.
@@ -60,7 +60,7 @@
 			<em>Placeholder text.</em> For both Toronto and Vancouver, we looked at match-day activity two ways: in a tight ring around the stadium and official fan zone, and across the city as a whole. The maps below show how those two areas compare.
 		</p>
 	</div>
-	<ZonesMapSection geo={data.geo} />
+	<ZoiMapsSection />
 
 	<!-- Activity over time -->
 	<div class="section-intro">
