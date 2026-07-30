@@ -2,7 +2,7 @@
 	import { fitProjection, bboxFeature } from '$lib/geo/projection.js';
 	import { displayLonLat } from '$lib/geo/proportionalScale.js';
 
-	let { provincesFC, cmaFeature, rows, cityLabel, radiusScale } = $props();
+	let { provincesFC, usaFeature, rows, cityLabel, radiusScale } = $props();
 
 	const W = 380;
 	const H = 380;
@@ -25,15 +25,18 @@
 			height: H,
 			padding: 0,
 		});
-		const provincePaths = provincesFC.features.map((f) => path(f));
-		const cmaPath = path(cmaFeature);
+		// Quebec is drawn separately (dimmed) - no origin data is collected there yet, so it
+		// shouldn't read as an equal, hoverable-feeling region alongside the rest.
+		const provincePaths = provincesFC.features.filter((f) => f.properties.PRENAME !== 'Quebec').map((f) => path(f));
+		const quebecPath = provincesFC.features.filter((f) => f.properties.PRENAME === 'Quebec').map((f) => path(f))[0];
+		const usaPath = path(usaFeature);
 		const points = rows.map((r) => {
 			const [lon, lat] = displayLonLat(r);
 			const [x, y] = projection([lon, lat]);
 			return { ...r, x, y, r: radiusScale(r.pct) };
 		});
 		points.sort((a, b) => b.r - a.r);
-		return { provincePaths, cmaPath, points };
+		return { provincePaths, quebecPath, usaPath, points };
 	});
 
 	let hoverIdx = $state(null);
@@ -61,7 +64,8 @@
 			{#each geo.provincePaths as d}
 				<path class="province" {d} />
 			{/each}
-			<path class="cma" d={geo.cmaPath} />
+			<path class="usa" d={geo.usaPath} />
+			<path class="quebec" d={geo.quebecPath} role="presentation" />
 			{#each geo.points as p, i}
 				<circle
 					class="symbol"
@@ -111,27 +115,37 @@
 		height: auto;
 	}
 	.water {
-		fill: var(--brandLightBlue);
+		fill: #75a3bb;
+	}
+	.usa {
+		/* Faint fill (not solid land color) so the surrounding ocean blue stays visible through
+		   it, same idea as the metro maps' CSD outlines. */
+		fill: rgba(82, 130, 126, 0.35);
+		stroke: rgba(235, 160, 15, 0.6);
+		stroke-width: 0.75;
 	}
 	.province {
-		fill: rgba(141, 191, 46, 0.4);
-		stroke: rgba(141, 191, 46, 0.75);
+		fill: rgba(82, 130, 126, 0.35);
+		stroke: var(--brandOrange);
 		stroke-width: 1;
 	}
-	.cma {
-		fill: rgba(241, 197, 0, 0.3);
-		stroke: var(--brandYellow);
-		stroke-width: 1.5;
+	.quebec {
+		/* No origin data for Quebec yet - blended in rather than styled as a normal, hoverable
+		   province (pointer-events off, no tooltip wired up; a methods note explains why). */
+		fill: rgba(82, 130, 126, 0.16);
+		stroke: rgba(235, 160, 15, 0.4);
+		stroke-width: 1;
+		pointer-events: none;
 	}
 	.symbol {
-		fill: rgba(235, 160, 15, 0.65);
-		stroke: var(--brandOrange);
+		fill: rgba(227, 152, 28, 0.75);
+		stroke: var(--brandYellow);
 		stroke-width: 1.25;
 		cursor: pointer;
 		transition: fill 0.1s;
 	}
 	.symbol.hovered {
-		fill: rgba(241, 197, 0, 0.85);
+		fill: rgba(241, 197, 0, 0.9);
 		stroke: var(--brandYellow);
 	}
 	.tooltip {

@@ -7,16 +7,18 @@ export const prerender = true;
 // other two routes is loaded.
 import gthaCsdUrl from '$data/geo/csd/gtha.json?url';
 import metroVancouverCsdUrl from '$data/geo/csd/metro_vancouver.json?url';
-import cmaTorontoHamiltonUrl from '$data/geo/cma/toronto_hamilton.json?url';
-import cmaVancouverUrl from '$data/geo/cma/vancouver.json?url';
 import provincesUrl from '$data/geo/provinces_territories.json?url';
+import usaNationUrl from '$data/geo/usa/nation.json?url';
+import waterTorontoUrl from '$data/geo/water/toronto.json?url';
+import waterVancouverUrl from '$data/geo/water/vancouver.json?url';
 
 const GEO_URLS = {
 	gthaCsd: gthaCsdUrl,
 	metroVancouverCsd: metroVancouverCsdUrl,
-	cmaTorontoHamilton: cmaTorontoHamiltonUrl,
-	cmaVancouver: cmaVancouverUrl,
 	provinces: provincesUrl,
+	usaNation: usaNationUrl,
+	waterToronto: waterTorontoUrl,
+	waterVancouver: waterVancouverUrl,
 };
 
 export async function load({ fetch }) {

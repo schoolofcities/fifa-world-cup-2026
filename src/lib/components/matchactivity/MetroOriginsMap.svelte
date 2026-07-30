@@ -1,12 +1,15 @@
 <script>
 	import { fitProjection } from '$lib/geo/projection.js';
 
-	let { csdFC, rows, cityLabel, radiusScale } = $props();
+	let { csdFC, usaFeature, waterFC, rows, cityLabel, radiusScale } = $props();
 
 	const W = 380;
 	const H = 380;
 
 	const geo = $derived.by(() => {
+		// Zoom/extent stays fixed to the CSD collection, exactly as before - the province/USA/
+		// water layers are drawn for context only, using this same projection, so they show only
+		// as much of themselves as happens to fall within that (unchanged) frame.
 		const { projection, path } = fitProjection({
 			type: 'mercator',
 			fitTo: csdFC,
@@ -15,13 +18,15 @@
 			padding: W * 0.06,
 		});
 		const csdPaths = csdFC.features.map((f) => path(f));
+		const usaPath = path(usaFeature);
+		const waterPaths = waterFC.features.map((f) => path(f));
 		const points = rows.map((r) => {
 			const [x, y] = projection([r.lon, r.lat]);
 			return { ...r, x, y, r: radiusScale(r.pct) };
 		});
 		// draw smaller symbols last so they aren't hidden under larger overlapping ones
 		points.sort((a, b) => b.r - a.r);
-		return { csdPaths, points };
+		return { csdPaths, usaPath, waterPaths, points };
 	});
 
 	let hoverIdx = $state(null);
@@ -45,6 +50,11 @@
 	<p class="map-title">{cityLabel}</p>
 	<div class="map-frame" bind:this={wrapEl}>
 		<svg viewBox="0 0 {W} {H}" style="overflow: hidden">
+			<rect class="land" x="0" y="0" width={W} height={H} />
+			<path class="usa-border" d={geo.usaPath} />
+			{#each geo.waterPaths as d}
+				<path class="water" {d} />
+			{/each}
 			{#each geo.csdPaths as d}
 				<path class="csd-border" {d} />
 			{/each}
@@ -89,7 +99,6 @@
 		position: relative;
 		border-radius: 10px;
 		overflow: hidden;
-		background: var(--brandDarkGreen);
 		box-shadow: 0 4px 16px rgba(30, 55, 101, 0.12), 0 1px 4px rgba(30, 55, 101, 0.08);
 	}
 	svg {
@@ -97,14 +106,25 @@
 		width: 100%;
 		height: auto;
 	}
+	.land {
+		fill: #52827e;
+	}
+	.usa-border {
+		fill: none;
+		stroke: var(--brandOrange);
+		stroke-width: 1.75;
+	}
+	.water {
+		fill: #75a3bb;
+	}
 	.csd-border {
 		fill: rgba(141, 191, 46, 0.16);
 		stroke: rgba(141, 191, 46, 0.55);
 		stroke-width: 1;
 	}
 	.symbol {
-		fill: rgba(235, 160, 15, 0.65);
-		stroke: var(--brandOrange);
+		fill: rgba(227, 152, 28, 0.75);
+		stroke: var(--brandYellow);
 		stroke-width: 1.25;
 		cursor: pointer;
 		transition: fill 0.1s;

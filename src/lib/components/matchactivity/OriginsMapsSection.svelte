@@ -15,8 +15,7 @@
 
 	let { geo } = $props();
 
-	const cmaToronto = $derived(geo.cmaTorontoHamilton.features[0]);
-	const cmaVancouver = $derived(geo.cmaVancouver.features[0]);
+	const usaFeature = $derived(geo.usaNation.features[0]);
 
 	const levels = [
 		{ key: '2km', label: 'Within 2km of stadium & fan zone', metroToronto: metroToronto2km, metroVancouver: metroVancouver2km, naToronto: naToronto2km, naVancouver: naVancouver2km },
@@ -44,12 +43,12 @@
 	</div>
 
 	<div class="origins-row">
-		<MetroOriginsMap csdFC={geo.gthaCsd} rows={level.metroToronto} cityLabel="Toronto & the GTHA" {radiusScale} />
-		<NorthAmericaOriginsMap provincesFC={geo.provinces} cmaFeature={cmaToronto} rows={level.naToronto} cityLabel="Toronto & North America" {radiusScale} />
+		<MetroOriginsMap csdFC={geo.gthaCsd} {usaFeature} waterFC={geo.waterToronto} rows={level.metroToronto} cityLabel="Toronto & the GTHA" {radiusScale} />
+		<NorthAmericaOriginsMap provincesFC={geo.provinces} {usaFeature} rows={level.naToronto} cityLabel="Toronto & North America" {radiusScale} />
 	</div>
 	<div class="origins-row">
-		<MetroOriginsMap csdFC={geo.metroVancouverCsd} rows={level.metroVancouver} cityLabel="Vancouver & Metro Van" {radiusScale} />
-		<NorthAmericaOriginsMap provincesFC={geo.provinces} cmaFeature={cmaVancouver} rows={level.naVancouver} cityLabel="Vancouver & North America" {radiusScale} />
+		<MetroOriginsMap csdFC={geo.metroVancouverCsd} {usaFeature} waterFC={geo.waterVancouver} rows={level.metroVancouver} cityLabel="Vancouver & Metro Van" {radiusScale} />
+		<NorthAmericaOriginsMap provincesFC={geo.provinces} {usaFeature} rows={level.naVancouver} cityLabel="Vancouver & North America" {radiusScale} />
 	</div>
 
 	<div class="origins-legend">
@@ -58,12 +57,12 @@
 			<span class="legend-text"><span class="legend-label">Circle size</span> &mdash; average share of match-day visits coming from that area (larger = more visits)</span>
 		</div>
 		<div class="legend-item">
-			<span class="legend-swatch cma"></span>
-			<span class="legend-text"><span class="legend-label">Metro area boundary</span> &mdash; the Census Metropolitan Area, shown separately from the rest of its province</span>
+			<span class="legend-swatch province"></span>
+			<span class="legend-text"><span class="legend-label">City, province &amp; country boundaries</span> &mdash; hover a circle for the exact share</span>
 		</div>
 		<div class="legend-item">
-			<span class="legend-swatch province"></span>
-			<span class="legend-text"><span class="legend-label">Provinces & census subdivisions</span> &mdash; hover a circle for the exact share</span>
+			<span class="legend-swatch quebec"></span>
+			<span class="legend-text"><span class="legend-label">Quebec</span> &mdash; shown for context only, no origin data collected there yet</span>
 		</div>
 	</div>
 </div>
@@ -140,18 +139,20 @@
 		margin-top: 2px;
 	}
 	.legend-swatch.symbol {
-		background: rgba(235, 160, 15, 0.65);
-		border: 1.5px solid var(--brandOrange);
-	}
-	.legend-swatch.cma {
-		border-radius: 4px;
-		background: rgba(241, 197, 0, 0.3);
+		background: rgba(227, 152, 28, 0.75);
 		border: 1.5px solid var(--brandYellow);
 	}
 	.legend-swatch.province {
+		/* Legend swatches need to read clearly on their own - shown more solid here than the
+		   faint on-map fill (which is deliberately subtle so the ocean shows through it). */
 		border-radius: 4px;
-		background: rgba(141, 191, 46, 0.4);
-		border: 1.5px solid rgba(141, 191, 46, 0.75);
+		background: #52827e;
+		border: 1.5px solid var(--brandOrange);
+	}
+	.legend-swatch.quebec {
+		border-radius: 4px;
+		background: rgba(82, 130, 126, 0.55);
+		border: 1.5px solid rgba(235, 160, 15, 0.6);
 	}
 
 	.legend-text {

@@ -1,6 +1,6 @@
 // Square-root radius scale for proportional-symbol maps, so symbol *area* (not radius) scales
 // linearly with value - the standard convention for these maps.
-export function makeRadiusScale(maxValue, { minR = 3, maxR = 42 } = {}) {
+export function makeRadiusScale(maxValue, { minR = 2, maxR = 42 } = {}) {
 	const k = Math.sqrt(maxValue) || 1;
 	return (value) => minR + (maxR - minR) * (Math.sqrt(Math.max(value, 0)) / k);
 }
@@ -14,6 +14,11 @@ export const NORTH_AMERICA_DISPLAY_OVERRIDES = {
 	US: [-98.6, 41.2],
 	'Northwest Territories': [-114.4, 62.45],
 	Nunavut: [-92.1, 62.8],
+	// "Rest of home province" points sit close enough to their own CMA point (same province, a
+	// few hundred km apart) that at North-America scale their circles can touch or overlap -
+	// nudged further from the CMA (NW for Ontario, N for BC) so both stay legible.
+	'Ontario - GTHA': [-88.5, 52.5],
+	'BC - Metro Van': [-124.9, 57.5],
 };
 
 export function displayLonLat(row) {
