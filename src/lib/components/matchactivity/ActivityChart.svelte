@@ -96,6 +96,10 @@
 				</text>
 			{/each}
 
+			{#each chart.fills as f}
+				<path class={f.cls} d={f.d} />
+			{/each}
+
 			<path class="line-2025" d={chart.path2025} />
 			<path class="line-pre2026" d={chart.pathPre2026} />
 			<path class="line-main" d={chart.pathMain} />
@@ -276,6 +280,15 @@
 		stroke-linejoin: round;
 		stroke-linecap: round;
 		stroke-dasharray: 1.5 4;
+	}
+	.fill-main {
+		fill: var(--fill-main);
+	}
+	.fill-pre2026 {
+		fill: var(--fill-pre2026);
+	}
+	.fill-2025 {
+		fill: var(--fill-2025);
 	}
 	.hover-target {
 		fill: transparent;

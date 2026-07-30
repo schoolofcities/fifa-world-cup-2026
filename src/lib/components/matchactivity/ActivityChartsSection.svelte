@@ -53,6 +53,9 @@
 		--series-main: var(--brandYellow);
 		--series-pre2026: var(--brandLightBlue);
 		--series-2025: var(--brandGray);
+		--fill-main: rgba(241, 197, 0, 0.16);
+		--fill-pre2026: rgba(111, 199, 234, 0.16);
+		--fill-2025: rgba(208, 209, 201, 0.14);
 		--matchday-line: rgba(255, 255, 255, 0.4);
 		max-width: 1000px;
 		margin: 0 auto;
