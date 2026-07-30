@@ -7,6 +7,7 @@
 	];
 
 	const legend = [
+		{ cls: 'dot', label: 'Stadium & fan zone locations' },
 		{ cls: 'buffer', label: 'Match & fan zone (2km buffer)' },
 		{ cls: 'csd', label: 'City boundary (CSD)' },
 	];
@@ -14,6 +15,15 @@
 
 <div class="zoi-section">
 	<div class="zoi-card">
+		<div class="zoi-legend">
+			{#each legend as l}
+				<span class="legend-item">
+					<span class="legend-swatch {l.cls}"></span>
+					{l.label}
+				</span>
+			{/each}
+		</div>
+
 		<div class="zoi-columns">
 			{#each CITIES as c}
 				<div class="zoi-column">
@@ -26,14 +36,6 @@
 			{/each}
 		</div>
 
-		<div class="zoi-legend">
-			{#each legend as l}
-				<span class="legend-item">
-					<span class="legend-swatch {l.cls}"></span>
-					{l.label}
-				</span>
-			{/each}
-		</div>
 	</div>
 </div>
 
@@ -54,7 +56,7 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 16px;
-		margin-bottom: 18px;
+		margin-top: 18px;
 	}
 
 	.zoi-column {
@@ -69,7 +71,7 @@
 		font-weight: normal;
 		font-size: 28px;
 		color: var(--brandWhite);
-		margin: 0;
+		margin: 0 0 -10px;
 		text-align: center;
 	}
 
@@ -77,13 +79,13 @@
 		font-family: OpenSans, sans-serif;
 		font-size: 14px;
 		color: var(--brandLightGreen);
-		margin: 0 0 10px;
+		margin: 0 0 5px;
 		text-align: center;
 	}
 
 	.circle-wrap {
 		width: 100%;
-		max-width: 420px;
+		max-width: 480px;
 		aspect-ratio: 1 / 1;
 		border-radius: 50%;
 		overflow: hidden;
@@ -103,8 +105,8 @@
 		flex-wrap: wrap;
 		justify-content: center;
 		gap: 8px 24px;
-		padding-top: 14px;
-		border-top: 1px solid rgba(255, 255, 255, 0.15);
+		padding-bottom: 14px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 	}
 
 	.legend-item {
@@ -129,6 +131,13 @@
 	}
 	.legend-swatch.csd {
 		background: #f1c500;
+	}
+	.legend-swatch.dot {
+		background: #dc4633;
+		border: 1.5px solid var(--brandWhite);
+		border-radius: 50%;
+		width: 11px;
+		height: 11px;
 	}
 
 	@media screen and (max-width: 600px) {
