@@ -42,27 +42,26 @@
 		{/each}
 	</div>
 
-	<div class="origins-row">
-		<MetroOriginsMap csdFC={geo.gthaCsd} {usaFeature} waterFC={geo.waterToronto} rows={level.metroToronto} cityLabel="Toronto & the GTHA" {radiusScale} />
-		<NorthAmericaOriginsMap provincesFC={geo.provinces} {usaFeature} rows={level.naToronto} cityLabel="Toronto & North America" {radiusScale} />
-	</div>
-	<div class="origins-row">
-		<MetroOriginsMap csdFC={geo.metroVancouverCsd} {usaFeature} waterFC={geo.waterVancouver} rows={level.metroVancouver} cityLabel="Vancouver & Metro Van" {radiusScale} />
-		<NorthAmericaOriginsMap provincesFC={geo.provinces} {usaFeature} rows={level.naVancouver} cityLabel="Vancouver & North America" {radiusScale} />
+	<div class="city-panel">
+		<div class="origins-legend">
+			<div class="legend-item">
+				<span class="legend-swatch symbol"></span>
+				<span class="legend-text"><span class="legend-label">Circle size</span> &mdash; average share of match-day visits coming from that area (larger = more visits)</span>
+			</div>
+		</div>
+
+		<h3 class="city-title">Matches in Toronto</h3>
+		<div class="origins-row">
+			<MetroOriginsMap csdFC={geo.gthaCsd} {usaFeature} waterFC={geo.waterToronto} rows={level.metroToronto} cityLabel="Greater Toronto and Hamilton Area" {radiusScale} />
+			<NorthAmericaOriginsMap provincesFC={geo.provinces} {usaFeature} rows={level.naToronto} cityLabel="Canada and USA" {radiusScale} />
+		</div>
 	</div>
 
-	<div class="origins-legend">
-		<div class="legend-item">
-			<span class="legend-swatch symbol"></span>
-			<span class="legend-text"><span class="legend-label">Circle size</span> &mdash; average share of match-day visits coming from that area (larger = more visits)</span>
-		</div>
-		<div class="legend-item">
-			<span class="legend-swatch province"></span>
-			<span class="legend-text"><span class="legend-label">City, province &amp; country boundaries</span> &mdash; hover a circle for the exact share</span>
-		</div>
-		<div class="legend-item">
-			<span class="legend-swatch quebec"></span>
-			<span class="legend-text"><span class="legend-label">Quebec</span> &mdash; shown for context only, no origin data collected there yet</span>
+	<div class="city-panel">
+		<h3 class="city-title">Matches in Vancouver</h3>
+		<div class="origins-row">
+			<MetroOriginsMap csdFC={geo.metroVancouverCsd} {usaFeature} waterFC={geo.waterVancouver} rows={level.metroVancouver} cityLabel="Metro Vancouver" {radiusScale} />
+			<NorthAmericaOriginsMap provincesFC={geo.provinces} {usaFeature} rows={level.naVancouver} cityLabel="Canada and USA" {radiusScale} />
 		</div>
 	</div>
 </div>
@@ -109,20 +108,36 @@
 		font-family: OpenSansBold, sans-serif;
 	}
 
+	.city-panel {
+		background: var(--brandDarkGreen);
+		border-radius: 14px;
+		padding: 24px 24px 28px;
+		margin-bottom: 28px;
+	}
+
+	.city-title {
+		font-family: TradeGothicBold, sans-serif;
+		font-weight: normal;
+		font-size: 28px;
+		color: var(--brandWhite);
+		margin: 0 0 20px;
+		padding: 0;
+		text-align: center;
+	}
+
 	.origins-row {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 		gap: 28px;
-		margin-bottom: 28px;
 	}
 
 	.origins-legend {
 		display: flex;
 		flex-direction: column;
 		gap: 8px;
-		background: var(--brandDarkGreen);
-		border-radius: 10px;
-		padding: 18px 22px;
+		padding-bottom: 18px;
+		margin-bottom: 20px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 	}
 
 	.legend-item {
@@ -141,18 +156,6 @@
 	.legend-swatch.symbol {
 		background: rgba(227, 152, 28, 0.75);
 		border: 1.5px solid var(--brandYellow);
-	}
-	.legend-swatch.province {
-		/* Legend swatches need to read clearly on their own - shown more solid here than the
-		   faint on-map fill (which is deliberately subtle so the ocean shows through it). */
-		border-radius: 4px;
-		background: #52827e;
-		border: 1.5px solid var(--brandOrange);
-	}
-	.legend-swatch.quebec {
-		border-radius: 4px;
-		background: rgba(82, 130, 126, 0.55);
-		border: 1.5px solid rgba(235, 160, 15, 0.6);
 	}
 
 	.legend-text {

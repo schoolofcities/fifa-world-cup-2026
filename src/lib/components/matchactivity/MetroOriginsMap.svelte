@@ -31,24 +31,51 @@
 
 	let hoverIdx = $state(null);
 	let wrapEl = $state(null);
+	let tooltipEl = $state(null);
+	let cursorPos = $state({ x: 0, y: 0 });
 	let tooltipPos = $state({ left: 0, top: 0 });
 
 	function onEnter(i, evt) {
 		hoverIdx = i;
-		if (!wrapEl) return;
-		const rect = wrapEl.getBoundingClientRect();
-		tooltipPos = { left: evt.clientX - rect.left + 10, top: evt.clientY - rect.top + 10 };
+		cursorPos = { x: evt.clientX, y: evt.clientY };
 	}
 	function onLeave() {
 		hoverIdx = null;
 	}
+
+	// Keeps the tooltip inside the viewport - flips to the opposite side of the cursor whenever
+	// the default placement would run off the right/bottom edge of the screen. Reruns whenever
+	// tooltipEl is (re)bound, i.e. right after the tooltip mounts, so it can measure its real size.
+	$effect(() => {
+		if (hoverIdx === null || !wrapEl) return;
+		const rect = wrapEl.getBoundingClientRect();
+		const tw = tooltipEl?.offsetWidth ?? 0;
+		const th = tooltipEl?.offsetHeight ?? 0;
+		const OFFSET = 12;
+		let left = cursorPos.x - rect.left + OFFSET;
+		let top = cursorPos.y - rect.top + OFFSET;
+		if (cursorPos.x + tw + OFFSET > window.innerWidth) left = cursorPos.x - rect.left - tw - OFFSET;
+		if (cursorPos.y + th + OFFSET > window.innerHeight) top = cursorPos.y - rect.top - th - OFFSET;
+		tooltipPos = { left, top };
+	});
+
+	// Tap-to-show/tap-elsewhere-to-dismiss for touch devices, without breaking desktop
+	// hover/click: a tap on a circle stops propagation and shows its tooltip; any other tap
+	// (elsewhere on this map, or anywhere else on the page) dismisses it.
+	$effect(() => {
+		function handleWindowClick(e) {
+			if (wrapEl && !wrapEl.contains(e.target)) hoverIdx = null;
+		}
+		window.addEventListener('click', handleWindowClick);
+		return () => window.removeEventListener('click', handleWindowClick);
+	});
 
 	const hoverPoint = $derived(hoverIdx === null ? null : geo.points[hoverIdx]);
 </script>
 
 <div class="metro-map">
 	<p class="map-title">{cityLabel}</p>
-	<div class="map-frame" bind:this={wrapEl}>
+	<div class="map-frame" bind:this={wrapEl} onclick={() => (hoverIdx = null)} role="presentation">
 		<svg viewBox="0 0 {W} {H}" style="overflow: hidden">
 			<rect class="land" x="0" y="0" width={W} height={H} />
 			<path class="usa-border" d={geo.usaPath} />
@@ -67,13 +94,14 @@
 					r={p.r.toFixed(2)}
 					onmouseenter={(e) => onEnter(i, e)}
 					onmouseleave={onLeave}
+					onclick={(e) => { e.stopPropagation(); onEnter(i, e); }}
 					role="presentation"
 				/>
 			{/each}
 		</svg>
 
 		{#if hoverPoint}
-			<div class="tooltip" style="left: {tooltipPos.left}px; top: {tooltipPos.top}px;">
+			<div class="tooltip" bind:this={tooltipEl} style="left: {tooltipPos.left}px; top: {tooltipPos.top}px;">
 				<div class="t-region">{hoverPoint.region}</div>
 				<div class="t-pct">{hoverPoint.pct.toFixed(hoverPoint.pct < 1 ? 2 : 1)}% of visits</div>
 			</div>
@@ -90,10 +118,11 @@
 	.map-title {
 		font-family: TradeGothicBold, sans-serif;
 		font-weight: normal;
-		font-size: 19px;
+		font-size: 22px;
 		color: var(--brandWhite);
 		margin: 0;
 		padding: 0;
+		text-align: center;
 	}
 	.map-frame {
 		position: relative;

@@ -25,47 +25,77 @@
 			height: H,
 			padding: 0,
 		});
-		// Quebec is drawn separately (dimmed) - no origin data is collected there yet, so it
-		// shouldn't read as an equal, hoverable-feeling region alongside the rest.
-		const provincePaths = provincesFC.features.filter((f) => f.properties.PRENAME !== 'Quebec').map((f) => path(f));
-		const quebecPath = provincesFC.features.filter((f) => f.properties.PRENAME === 'Quebec').map((f) => path(f))[0];
-		const usaPath = path(usaFeature);
+		// Same two-layer approach as the metro maps: a solid land base covering every
+		// province/territory + the US (so shared borders never show a seam of background water
+		// peeking through), then a highlighted overlay on top for every unit *except* Quebec -
+		// no origin data is collected there yet, so it reads as plain land instead of an equal,
+		// hoverable-feeling region alongside the rest.
+		const landPaths = [...provincesFC.features, usaFeature].map((f) => path(f));
+		const highlightPaths = [...provincesFC.features.filter((f) => f.properties.PRENAME !== 'Quebec'), usaFeature].map((f) => path(f));
 		const points = rows.map((r) => {
 			const [lon, lat] = displayLonLat(r);
 			const [x, y] = projection([lon, lat]);
 			return { ...r, x, y, r: radiusScale(r.pct) };
 		});
 		points.sort((a, b) => b.r - a.r);
-		return { provincePaths, quebecPath, usaPath, points };
+		return { landPaths, highlightPaths, points };
 	});
 
 	let hoverIdx = $state(null);
 	let wrapEl = $state(null);
+	let tooltipEl = $state(null);
+	let cursorPos = $state({ x: 0, y: 0 });
 	let tooltipPos = $state({ left: 0, top: 0 });
 
 	function onEnter(i, evt) {
 		hoverIdx = i;
-		if (!wrapEl) return;
-		const rect = wrapEl.getBoundingClientRect();
-		tooltipPos = { left: evt.clientX - rect.left + 10, top: evt.clientY - rect.top + 10 };
+		cursorPos = { x: evt.clientX, y: evt.clientY };
 	}
 	function onLeave() {
 		hoverIdx = null;
 	}
+
+	// Keeps the tooltip inside the viewport - flips to the opposite side of the cursor whenever
+	// the default placement would run off the right/bottom edge of the screen. Reruns whenever
+	// tooltipEl is (re)bound, i.e. right after the tooltip mounts, so it can measure its real size.
+	$effect(() => {
+		if (hoverIdx === null || !wrapEl) return;
+		const rect = wrapEl.getBoundingClientRect();
+		const tw = tooltipEl?.offsetWidth ?? 0;
+		const th = tooltipEl?.offsetHeight ?? 0;
+		const OFFSET = 12;
+		let left = cursorPos.x - rect.left + OFFSET;
+		let top = cursorPos.y - rect.top + OFFSET;
+		if (cursorPos.x + tw + OFFSET > window.innerWidth) left = cursorPos.x - rect.left - tw - OFFSET;
+		if (cursorPos.y + th + OFFSET > window.innerHeight) top = cursorPos.y - rect.top - th - OFFSET;
+		tooltipPos = { left, top };
+	});
+
+	// Tap-to-show/tap-elsewhere-to-dismiss for touch devices, without breaking desktop
+	// hover/click: a tap on a circle stops propagation and shows its tooltip; any other tap
+	// (elsewhere on this map, or anywhere else on the page) dismisses it.
+	$effect(() => {
+		function handleWindowClick(e) {
+			if (wrapEl && !wrapEl.contains(e.target)) hoverIdx = null;
+		}
+		window.addEventListener('click', handleWindowClick);
+		return () => window.removeEventListener('click', handleWindowClick);
+	});
 
 	const hoverPoint = $derived(hoverIdx === null ? null : geo.points[hoverIdx]);
 </script>
 
 <div class="na-map">
 	<p class="map-title">{cityLabel}</p>
-	<div class="map-frame" bind:this={wrapEl}>
+	<div class="map-frame" bind:this={wrapEl} onclick={() => (hoverIdx = null)} role="presentation">
 		<svg viewBox="0 0 {W} {H}" style="overflow: hidden">
 			<rect class="water" x="0" y="0" width={W} height={H} />
-			{#each geo.provincePaths as d}
-				<path class="province" {d} />
+			{#each geo.landPaths as d}
+				<path class="land" {d} />
 			{/each}
-			<path class="usa" d={geo.usaPath} />
-			<path class="quebec" d={geo.quebecPath} role="presentation" />
+			{#each geo.highlightPaths as d}
+				<path class="highlight" {d} />
+			{/each}
 			{#each geo.points as p, i}
 				<circle
 					class="symbol"
@@ -75,13 +105,14 @@
 					r={p.r.toFixed(2)}
 					onmouseenter={(e) => onEnter(i, e)}
 					onmouseleave={onLeave}
+					onclick={(e) => { e.stopPropagation(); onEnter(i, e); }}
 					role="presentation"
 				/>
 			{/each}
 		</svg>
 
 		{#if hoverPoint}
-			<div class="tooltip" style="left: {tooltipPos.left}px; top: {tooltipPos.top}px;">
+			<div class="tooltip" bind:this={tooltipEl} style="left: {tooltipPos.left}px; top: {tooltipPos.top}px;">
 				<div class="t-region">{displayName(hoverPoint.region)}</div>
 				<div class="t-pct">{hoverPoint.pct.toFixed(hoverPoint.pct < 1 ? 2 : 1)}% of visits</div>
 			</div>
@@ -98,10 +129,11 @@
 	.map-title {
 		font-family: TradeGothicBold, sans-serif;
 		font-weight: normal;
-		font-size: 19px;
+		font-size: 22px;
 		color: var(--brandWhite);
 		margin: 0;
 		padding: 0;
+		text-align: center;
 	}
 	.map-frame {
 		position: relative;
@@ -117,25 +149,19 @@
 	.water {
 		fill: #75a3bb;
 	}
-	.usa {
-		/* Faint fill (not solid land color) so the surrounding ocean blue stays visible through
-		   it, same idea as the metro maps' CSD outlines. */
-		fill: rgba(82, 130, 126, 0.35);
-		stroke: rgba(235, 160, 15, 0.6);
-		stroke-width: 0.75;
+	.land {
+		/* Solid base covering every province/territory + the US, same idea as the metro maps'
+		   solid land rect - guarantees no seam of background water shows through between
+		   adjacent provinces, regardless of how closely their simplified borders line up. */
+		fill: #52827e;
+		stroke: none;
 	}
-	.province {
-		fill: rgba(82, 130, 126, 0.35);
+	.highlight {
+		/* Drawn on top of .land for every unit except Quebec - same coloring effect as the CSD
+		   outlines on the metro maps (a light tint + a clear border), not a flat fill. */
+		fill: rgba(235, 160, 15, 0.25);
 		stroke: var(--brandOrange);
 		stroke-width: 1;
-	}
-	.quebec {
-		/* No origin data for Quebec yet - blended in rather than styled as a normal, hoverable
-		   province (pointer-events off, no tooltip wired up; a methods note explains why). */
-		fill: rgba(82, 130, 126, 0.16);
-		stroke: rgba(235, 160, 15, 0.4);
-		stroke-width: 1;
-		pointer-events: none;
 	}
 	.symbol {
 		fill: rgba(227, 152, 28, 0.75);
