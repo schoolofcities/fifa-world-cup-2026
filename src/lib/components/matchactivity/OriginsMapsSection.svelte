@@ -58,6 +58,13 @@
 	</div>
 
 	<div class="city-panel">
+		<div class="origins-legend">
+			<div class="legend-item">
+				<span class="legend-swatch symbol"></span>
+				<span class="legend-text"><span class="legend-label">Circle size</span> &mdash; average share of match-day visits coming from that area (larger = more visits)</span>
+			</div>
+		</div>
+
 		<h3 class="city-title">Matches in Vancouver</h3>
 		<div class="origins-row">
 			<MetroOriginsMap csdFC={geo.metroVancouverCsd} {usaFeature} waterFC={geo.waterVancouver} rows={level.metroVancouver} cityLabel="Metro Vancouver" {radiusScale} />
@@ -112,7 +119,10 @@
 		background: var(--brandDarkGreen);
 		border-radius: 14px;
 		padding: 24px 24px 28px;
-		margin-bottom: 28px;
+	}
+
+	.city-panel + .city-panel {
+		margin-top: 28px;
 	}
 
 	.city-title {

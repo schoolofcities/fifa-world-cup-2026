@@ -13,8 +13,16 @@
 	// NORTH_AMERICA_DISPLAY_OVERRIDES for the handful of points nudged back into this frame.
 	const CROP_BBOX = [-141, 41, -52, 68];
 
+	const REGION_LABELS = {
+		US: 'United States',
+		'Toronto Hamilton CMA': 'Greater Toronto and Hamilton Area',
+		'Vancouver CMA': 'Metro Vancouver',
+		'Ontario - GTHA': 'Rest of Ontario',
+		'BC - Metro Van': 'Rest of BC',
+	};
+
 	function displayName(region) {
-		return region === 'US' ? 'United States' : region;
+		return REGION_LABELS[region] ?? region;
 	}
 
 	const geo = $derived.by(() => {
@@ -32,11 +40,15 @@
 		// hoverable-feeling region alongside the rest.
 		const landPaths = [...provincesFC.features, usaFeature].map((f) => path(f));
 		const highlightPaths = [...provincesFC.features.filter((f) => f.properties.PRENAME !== 'Quebec'), usaFeature].map((f) => path(f));
-		const points = rows.map((r) => {
-			const [lon, lat] = displayLonLat(r);
-			const [x, y] = projection([lon, lat]);
-			return { ...r, x, y, r: radiusScale(r.pct) };
-		});
+		// No origin data is collected in Quebec - some data levels still include a Quebec row
+		// (typically at 0%) that should never render as a hoverable circle on the map.
+		const points = rows
+			.filter((r) => r.region !== 'Quebec')
+			.map((r) => {
+				const [lon, lat] = displayLonLat(r);
+				const [x, y] = projection([lon, lat]);
+				return { ...r, x, y, r: radiusScale(r.pct) };
+			});
 		points.sort((a, b) => b.r - a.r);
 		return { landPaths, highlightPaths, points };
 	});
@@ -55,19 +67,24 @@
 		hoverIdx = null;
 	}
 
-	// Keeps the tooltip inside the viewport - flips to the opposite side of the cursor whenever
-	// the default placement would run off the right/bottom edge of the screen. Reruns whenever
-	// tooltipEl is (re)bound, i.e. right after the tooltip mounts, so it can measure its real size.
+	// Keeps the tooltip inside the map frame - flips to the opposite side of the cursor whenever
+	// the default (bottom-right) placement would run off the edge of the frame itself. The frame
+	// clips with overflow:hidden, so what matters is the frame's own bounds, not the viewport -
+	// a circle near the frame's bottom-right can still be well inside the browser window. Reruns
+	// whenever tooltipEl is (re)bound, i.e. right after the tooltip mounts, so it can measure its
+	// real size.
 	$effect(() => {
 		if (hoverIdx === null || !wrapEl) return;
 		const rect = wrapEl.getBoundingClientRect();
 		const tw = tooltipEl?.offsetWidth ?? 0;
 		const th = tooltipEl?.offsetHeight ?? 0;
 		const OFFSET = 12;
-		let left = cursorPos.x - rect.left + OFFSET;
-		let top = cursorPos.y - rect.top + OFFSET;
-		if (cursorPos.x + tw + OFFSET > window.innerWidth) left = cursorPos.x - rect.left - tw - OFFSET;
-		if (cursorPos.y + th + OFFSET > window.innerHeight) top = cursorPos.y - rect.top - th - OFFSET;
+		const cx = cursorPos.x - rect.left;
+		const cy = cursorPos.y - rect.top;
+		let left = cx + OFFSET;
+		let top = cy + OFFSET;
+		if (cx + tw + OFFSET > rect.width) left = cx - tw - OFFSET;
+		if (cy + th + OFFSET > rect.height) top = cy - th - OFFSET;
 		tooltipPos = { left, top };
 	});
 

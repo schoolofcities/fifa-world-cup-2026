@@ -57,5 +57,6 @@ export const matchActivityIcons = [
 	{ label: 'Soccer ball', path: ballPath },
 	{ label: 'Shoe cleats', path: cleatsPath },
 	{ label: 'Person', path: personPath },
+	{ label: 'Bike', path: bikePath },
 	{ label: 'Bus', path: busPath },
 ];

@@ -6,6 +6,13 @@
 	const W = 380;
 	const H = 380;
 
+	// The host city's own row is labelled "Toronto CSD" / "Vancouver CSD" in the source data (to
+	// distinguish it from the surrounding municipalities of the same metro area) - shown plainly
+	// as just the city name.
+	function displayName(region) {
+		return region.replace(/ CSD$/, '');
+	}
+
 	const geo = $derived.by(() => {
 		// Zoom/extent stays fixed to the CSD collection, exactly as before - the province/USA/
 		// water layers are drawn for context only, using this same projection, so they show only
@@ -43,19 +50,24 @@
 		hoverIdx = null;
 	}
 
-	// Keeps the tooltip inside the viewport - flips to the opposite side of the cursor whenever
-	// the default placement would run off the right/bottom edge of the screen. Reruns whenever
-	// tooltipEl is (re)bound, i.e. right after the tooltip mounts, so it can measure its real size.
+	// Keeps the tooltip inside the map frame - flips to the opposite side of the cursor whenever
+	// the default (bottom-right) placement would run off the edge of the frame itself. The frame
+	// clips with overflow:hidden, so what matters is the frame's own bounds, not the viewport -
+	// a circle near the frame's bottom-right can still be well inside the browser window. Reruns
+	// whenever tooltipEl is (re)bound, i.e. right after the tooltip mounts, so it can measure its
+	// real size.
 	$effect(() => {
 		if (hoverIdx === null || !wrapEl) return;
 		const rect = wrapEl.getBoundingClientRect();
 		const tw = tooltipEl?.offsetWidth ?? 0;
 		const th = tooltipEl?.offsetHeight ?? 0;
 		const OFFSET = 12;
-		let left = cursorPos.x - rect.left + OFFSET;
-		let top = cursorPos.y - rect.top + OFFSET;
-		if (cursorPos.x + tw + OFFSET > window.innerWidth) left = cursorPos.x - rect.left - tw - OFFSET;
-		if (cursorPos.y + th + OFFSET > window.innerHeight) top = cursorPos.y - rect.top - th - OFFSET;
+		const cx = cursorPos.x - rect.left;
+		const cy = cursorPos.y - rect.top;
+		let left = cx + OFFSET;
+		let top = cy + OFFSET;
+		if (cx + tw + OFFSET > rect.width) left = cx - tw - OFFSET;
+		if (cy + th + OFFSET > rect.height) top = cy - th - OFFSET;
 		tooltipPos = { left, top };
 	});
 
@@ -102,7 +114,7 @@
 
 		{#if hoverPoint}
 			<div class="tooltip" bind:this={tooltipEl} style="left: {tooltipPos.left}px; top: {tooltipPos.top}px;">
-				<div class="t-region">{hoverPoint.region}</div>
+				<div class="t-region">{displayName(hoverPoint.region)}</div>
 				<div class="t-pct">{hoverPoint.pct.toFixed(hoverPoint.pct < 1 ? 2 : 1)}% of visits</div>
 			</div>
 		{/if}

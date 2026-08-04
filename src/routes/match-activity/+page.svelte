@@ -22,12 +22,14 @@
 	<meta property="og:description" content="A closer look at match-day activity across FIFA World Cup 2026 host cities." />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://schoolofcities.github.io/fifa-world-cup-2026/match-activity" />
+	<meta property="og:image" content="https://raw.githubusercontent.com/schoolofcities/fifa-world-cup-2026/main/static/web-card-match-activity.png" />
 	<meta property="og:locale" content="en_CA">
 
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:site" content="https://schoolofcities.github.io/fifa-world-cup-2026/match-activity" />
 	<meta name="twitter:title" content="Match Activity | School of Cities" />
 	<meta name="twitter:description" content="A closer look at match-day activity across FIFA World Cup 2026 host cities." />
+	<meta name="twitter:image" content="https://raw.githubusercontent.com/schoolofcities/fifa-world-cup-2026/main/static/web-card-match-activity.png" />
 </svelte:head>
 
 <main>
@@ -36,10 +38,14 @@
 		<Hero
 			icons={matchActivityIcons}
 			title="Visitation Activity Across Matches"
-			lede="The recent soccer matches looked more like any old day in both Toronto and Vancouver, despite the anticipation and infrastructure investment that preceded them."
+			lede="The recent soccer matches looked more like any old day in both Toronto and Vancouver"
 			date="2026"
 			author="Yihoi Jung, Aniket Kali"
-		></Hero>
+		>
+			<p>
+				We looked at mobile activity around the stadiums and fan zones during World Cup matches in Toronto and Vancouver – how much it changed, and where visitors came from – to see just how prominent these matches were.
+			</p>
+		</Hero>
 	</div>
 
 	<!-- Article intro -->
@@ -82,6 +88,7 @@
 		</p>
 	</div>
 
+	<div class="ma-methods">
 	<MethodsSection>
 		<h3>Mobile activity data</h3>
 		<p>We used anonymized mobile activity data provided by Cuebiq, which aggregates a sample of location records collected by mobility data providers. Because the data represent only a subset of mobile devices and include privacy-preserving noise, the results should be interpreted as broad patterns rather than precise counts of people.</p>
@@ -110,6 +117,7 @@
 		<p>Mobile activity data are an indirect and incomplete measure of visitation. They capture only devices represented in Cuebiq's sample, and privacy protections introduce additional noise into the data. A recorded device within a catchment also cannot be assumed to represent someone attending a World Cup event.</p>
 		<p>The consistency of the results across multiple buffer sizes suggests that the broad findings are not driven solely by the precise boundaries selected. Nevertheless, the activity and origin estimates should be understood as approximate indicators of relative patterns, not comprehensive attendance figures.</p>
 	</MethodsSection>
+	</div>
 
 	<div class="footer-icons">
 		<FooterIcons icons={matchActivityIcons} />
@@ -144,13 +152,13 @@
 	.section-intro {
 		max-width: 700px;
 		margin: 0 auto;
-		padding: 60px 24px 30px;
+		padding: 44px 24px;
 	}
 
 	.section-intro p {
 		font-family: OpenSans, sans-serif;
-		font-size: 16px;
-		line-height: 1.6;
+		font-size: 18px;
+		line-height: 1.65;
 		color: rgba(255, 255, 255, 0.9);
 		margin: 0 0 12px;
 		padding: 0;
@@ -166,5 +174,18 @@
 		max-width: 700px;
 		margin: 50px auto 0;
 		padding: 0 20px;
+	}
+
+	/* ── Data & Methods (scoped to this page only; MethodsSection is shared) ── */
+	:global(.ma-methods .methods-inner p),
+	:global(.ma-methods .methods-inner li) {
+		font-size: 17px !important;
+	}
+
+	/* MethodsSection's own 60px top margin is redundant here - the preceding closing paragraph
+	   already carries the standard 44px bottom padding, so this would otherwise nearly double
+	   the gap compared to every other paragraph-to-visual transition on the page. */
+	:global(.ma-methods .methods) {
+		margin-top: 0 !important;
 	}
 </style>
