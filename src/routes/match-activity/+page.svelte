@@ -35,63 +35,80 @@
 	<div class="hero">
 		<Hero
 			icons={matchActivityIcons}
-			title="Match Activity"
-			lede="What did match days look like across FIFA World Cup 2026 host cities?"
+			title="Visitation Activity Across Matches"
+			lede="The recent soccer matches looked more like any old day in both Toronto and Vancouver, despite the anticipation and infrastructure investment that preceded them."
 			date="2026"
 			author="Yihoi Jung, Aniket Kali"
-		>
-			<p>
-				This page is under construction. Check back soon for a closer look at match-day activity during the 2026 World Cup.
-			</p>
-		</Hero>
+		></Hero>
 	</div>
 
-	<!-- Placeholder note -->
-	<div class="placeholder-note">
-		<div class="placeholder-note-inner">
-			<p><strong>Coming soon:</strong> the visualizations below are in place, but all of the surrounding text (including this note and the Data & Methods section) is placeholder copy.</p>
-		</div>
-	</div>
-
-	<!-- Zones of interest -->
+	<!-- Article intro -->
 	<div class="section-intro">
-		<h2>Zones of interest</h2>
 		<p>
-			<em>Placeholder text.</em> For both Toronto and Vancouver, we looked at match-day activity two ways: in a tight ring around the stadium and official fan zone, and across the city as a whole. The maps below show how those two areas compare.
+			It was the first time that Canada had hosted the FIFA Men's World Cup &ndash; to much fanfare and trepidation. Toronto invested in transit infrastructure to get ahead of congestion woes, and Vancouver renovated its stadium and expanded pedestrian zones.
+		</p>
+		<p>
+			In the end, did the effort match visitors to the cities and their matches? We took a look at visitor activity during the recent soccer matches from Canada and the US only &ndash; how many people came, how it compared to times before, and where they came from &ndash; to find out just how prominent these matches were.
+		</p>
+		<p>
+			We drew two catchment areas for visitors: first, the two-kilometre zones around the match stadium and fan zones, and second, the whole of the host city, shown below. Using mobile activity records, we counted those individuals that fell in these catchments.
 		</p>
 	</div>
 	<ZoiMapsSection />
 
-	<!-- Activity over time -->
 	<div class="section-intro">
-		<h2>Activity over time</h2>
 		<p>
-			<em>Placeholder text.</em> How did daily activity during the tournament compare to a quieter baseline period earlier in 2026, and to the same weeks one year earlier? Match days stand out as clear spikes above both baselines.
+			Counting the number of visits to these zones from June 1st to July 10th &ndash; encapsulating all soccer matches in both cities &ndash; we compare them to about five weeks prior, as well as the same date one year ago, plotted below.
+		</p>
+		<p>
+			Activity is mostly up compared to five weeks prior, but this may be a result of the weather warming up. Perhaps surprisingly, compared to the same date in 2025, activity is just about the same and many days lower, with a lack of noticeable spikes on match days.
 		</p>
 	</div>
 	<ActivityChartsSection />
 
-	<!-- Where visitors came from -->
 	<div class="section-intro">
-		<h2>Where visitors came from</h2>
 		<p>
-			<em>Placeholder text.</em> Most match-day activity came from close by, but a meaningful share travelled from across the metro area, and from further afield across Canada and the US. The maps below break that down by distance.
+			Even if visitation trends did not spike for matches in either city, there still were visitors. Where did they come from &ndash; nearby or from afar?
+		</p>
+		<p>
+			Overwhelmingly, visitors on match days were local: largely from the host cities themselves, with a modest amount from their metropolitan regions, and a trickle coming from other provinces or the United States, as shown below.
 		</p>
 	</div>
 	<OriginsMapsSection geo={data.geo} />
 
+	<div class="section-intro">
+		<p>
+			And so another set of soccer matches came and went through Toronto and Vancouver. Despite the anticipation and the worries, it looked more like just another day in the city than a major attraction.
+		</p>
+	</div>
+
 	<MethodsSection>
-		<h3>Data collection</h3>
-		<p><em>Placeholder &mdash; methods write-up coming soon.</em> This section will describe the source of the underlying activity and origin data, how it was aggregated, and any limitations worth flagging.</p>
+		<h3>Mobile activity data</h3>
+		<p>We used anonymized mobile activity data provided by Cuebiq, which aggregates a sample of location records collected by mobility data providers. Because the data represent only a subset of mobile devices and include privacy-preserving noise, the results should be interpreted as broad patterns rather than precise counts of people.</p>
+		<p>We examined three 40-day periods, with two comparison periods to distinguish activity related to the tournament:</p>
+		<ol>
+			<li>World Cup period: June 1 to July 10, 2026</li>
+			<li>Five-week baseline: April 22 to May 31, 2026</li>
+			<li>Previous-year baseline: June 1 to July 10, 2025</li>
+		</ol>
 
-		<h3>Zones of interest</h3>
-		<p><em>Placeholder.</em> This section will describe how the 2km stadium &amp; fan-zone buffer and the city (CSD) boundary were defined for each host city.</p>
+		<h3>Areas of interest</h3>
+		<p>We measured activity within two types of areas to capture venue visitors and the surrounding areas. The first consisted of two-kilometre buffers around the match stadium and official fan zone in each host city.</p>
+		<p>We tested several alternative buffer sizes &ndash; 100 metres, 200 metres, 500 metres, 1 kilometre, 2 kilometres, 5 kilometres, and 10 kilometres &ndash; and found similar overall patterns. We therefore used the 2-kilometre buffers as a balance between capturing event-related activity and limiting unrelated activity elsewhere in the city.</p>
+		<p>For a broader comparison, we also measured activity across the full municipal boundaries of Toronto and Vancouver, using Statistics Canada census subdivision (CSD) boundaries.</p>
 
-		<h3>Baseline periods</h3>
-		<p><em>Placeholder.</em> This section will describe how the pre-tournament and prior-year baseline periods were chosen and matched to the 2026 World Cup dates.</p>
+		<h3>Activity trends</h3>
+		<p>For each area, we compared daily activity during the World Cup period with the corresponding days in the two baseline periods. We initially explored an hourly breakdown of activity, but the available sample was not large enough to support reliable hour-by-hour estimates.</p>
+		<p>We do not report raw device or visitor counts as the data is a subsample of the population and to preserve privacy. Instead, the charts show normalized activity values that permit comparison.</p>
 
-		<h3>Origins</h3>
-		<p><em>Placeholder.</em> This section will describe how visitor origins were estimated and aggregated to the census subdivision, metro, and province/state levels shown above.</p>
+		<h3>Visitor origins</h3>
+		<p>We also examined the estimated home origins of visitors observed within the stadium and fan-zone catchments on match days. Origins were available for Canada, excluding Quebec, and for the United States. Visitors from other countries are therefore not represented, even though international visitors from outside Canada and the United States undoubtedly attended the tournament.</p>
+		<p>Within Canada, we examined origins at two geographic scales: the Toronto and Vancouver census metropolitan areas (CMA), and Canada's provinces and territories. The United States was included as a single origin category. This allowed us to distinguish visitors from the host city, the surrounding metropolitan region, other parts of Canada, and the United States.</p>
+		<p>For each origin, we calculated its average percentage of observed visits across match days. These figures describe the composition of recorded visitor activity rather than the total number of individual visitors.</p>
+
+		<h3>Limitations</h3>
+		<p>Mobile activity data are an indirect and incomplete measure of visitation. They capture only devices represented in Cuebiq's sample, and privacy protections introduce additional noise into the data. A recorded device within a catchment also cannot be assumed to represent someone attending a World Cup event.</p>
+		<p>The consistency of the results across multiple buffer sizes suggests that the broad findings are not driven solely by the precise boundaries selected. Nevertheless, the activity and origin estimates should be understood as approximate indicators of relative patterns, not comprehensive attendance figures.</p>
 	</MethodsSection>
 
 	<div class="footer-icons">
@@ -115,6 +132,14 @@
 		padding-right: 20px;
 	}
 
+	.hero :global(p) {
+		margin-bottom: 16px;
+	}
+
+	.hero :global(p:last-child) {
+		margin-bottom: 0;
+	}
+
 	/* ── Section intros ── */
 	.section-intro {
 		max-width: 700px;
@@ -122,59 +147,18 @@
 		padding: 60px 24px 30px;
 	}
 
-	.section-intro h2 {
-		font-family: TradeGothicBold, sans-serif;
-		font-weight: normal;
-		font-size: 28px;
-		color: var(--brandWhite);
-		margin: 0 0 12px;
-		padding: 0;
-		text-align: left;
-	}
-
 	.section-intro p {
 		font-family: OpenSans, sans-serif;
 		font-size: 16px;
 		line-height: 1.6;
 		color: rgba(255, 255, 255, 0.9);
-		margin: 0;
+		margin: 0 0 12px;
 		padding: 0;
 		text-align: left;
 	}
 
-	.section-intro p em {
-		font-family: OpenSansItalic, sans-serif;
-		font-style: normal;
-		color: var(--brandLightGreen);
-	}
-
-	/* ── Placeholder note ── */
-	.placeholder-note {
-		max-width: 700px;
-		margin: 60px auto 60px;
-		padding: 0 24px;
-	}
-
-	.placeholder-note-inner {
-		border-left: 4px solid var(--brandDarkBlue);
-		padding: 14px 20px;
-		background-color: var(--brandDarkGreen);
-		border-radius: 0 6px 6px 0;
-	}
-
-	.placeholder-note p {
-		font-family: OpenSans, sans-serif;
-		font-size: 14px;
-		line-height: 1.6;
-		color: var(--brandWhite);
-		margin: 0;
-		padding: 0;
-	}
-
-	.placeholder-note strong {
-		font-family: OpenSansBold, sans-serif;
-		font-weight: normal;
-		color: var(--brandLightGreen);
+	.section-intro p:last-child {
+		margin-bottom: 0;
 	}
 
 	/* ── Footer icons ── */

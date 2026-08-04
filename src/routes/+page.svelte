@@ -21,8 +21,8 @@
 		},
 		{
 			href: `${base}/match-activity`,
-			title: 'Match Activity',
-			description: 'A closer look at match-day activity across FIFA World Cup 2026 host cities.',
+			title: 'Visitation Activity Across Matches',
+			description: 'A closer look at activity trends across Toronto and Vancouver around all matches.',
 		},
 	];
 </script>
@@ -51,7 +51,7 @@
 		<Hero
 			icons={homeIcons}
 			title="FIFA World Cup 2026: Cities in Motion"
-			lede="Data stories about transit, mobility, and host cities during the 2026 World Cup."
+			lede="Data stories about transit, mobility, and activity during the 2026 World Cup."
 			date="2026"
 			author='Jeff Allen, Yihoi Jung, Aniket Kali'
 		>
