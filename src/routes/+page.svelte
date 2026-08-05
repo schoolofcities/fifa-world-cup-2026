@@ -21,7 +21,7 @@
 		},
 		{
 			href: `${base}/match-activity`,
-			title: 'Visitation Activity Across Matches',
+			title: 'Visitor Activity Across Soccer Matches in Toronto and Vancouver',
 			description: 'A closer look at activity trends across Toronto and Vancouver around all matches.',
 		},
 	];
