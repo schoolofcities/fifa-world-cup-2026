@@ -61,17 +61,17 @@
 
 	<div class="section-intro">
 		<p>
-			We counted the number of visits to these zones from June 1 to July 10 – encapsulating all soccer matches in both cities – and compared them to the five weeks prior and the  same date one year previous. 
+			We counted the number of visits to these zones from June 1 to July 10 – encapsulating all soccer matches in both cities – and compared them to approximately five weeks prior and the  same date one year previous.
 		</p>
 		<p>
-			We found that activity was up compared to five weeks prior, but this may be partially a result of the weather warming up. But, when compared to the same date in 2025, we found that activity was approximately the same, and sometimes lower than a year ago, with no noticeable spikes on match days. 
+			We found that activity was up compared to approximately five weeks prior, but this may be partially a result of the weather warming up. But, when compared to the same date in 2025, we found that activity was approximately the same, and sometimes lower than a year ago, with no noticeable spikes on match days.
 		</p>
 	</div>
 	<ActivityChartsSection />
 
 	<div class="section-intro">
 		<p>
-			Even if visit trends did not spike for matches in either city, there still were visitors in the catchment areas. We also asked – where did they come from, nearby or from afar?
+			Even if visit trends did not spike for matches in either city, there still were visitors in the catchment areas. We also asked – where did they come from, nearby or afar?
 		</p>
 		<p>
 			Overwhelmingly, visitors on match days were local. They were largely from the host cities themselves, with only a modest amount from the metropolitan regions and a trickle from other provinces or the United States.
@@ -91,7 +91,7 @@
 		<p>We used anonymized mobile activity data provided by Cuebiq, which aggregates a sample of location records collected by mobility data providers. Because the data represent only a subset of mobile devices and include privacy-preserving noise, the results should be interpreted as broad patterns rather than precise counts of individuals.</p>
 		<p>We examined three 40-day periods, with two comparison periods to distinguish activity related to the tournament:</p>
 		<ol>
-			<li>World Cup period: June 1 to July 10, 2026</li>
+			<li>FIFA World Cup 2026 period: June 1 to July 10, 2026</li>
 			<li>Five-week baseline: April 22 to May 31, 2026</li>
 			<li>Previous-year baseline: June 1 to July 10, 2025</li>
 		</ol>

@@ -14,7 +14,7 @@
 	const CROP_BBOX = [-141, 41, -52, 68];
 
 	const REGION_LABELS = {
-		US: 'United States',
+		US: 'U.S.A.',
 		'Toronto Hamilton CMA': 'Greater Toronto and Hamilton Area',
 		'Vancouver CMA': 'Metro Vancouver',
 		'Ontario - GTHA': 'Rest of Ontario',

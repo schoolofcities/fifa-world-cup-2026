@@ -54,7 +54,7 @@
 		<div class="legend">
 			<span class="legend-item">
 				<span class="swatch solid"></span>
-				2026 (World Cup)
+				FIFA World Cup 2026
 			</span>
 			<span class="legend-item">
 				<span class="swatch dashed"></span>
@@ -138,7 +138,7 @@
 				</div>
 				<div class="t-row">
 					<span class="t-swatch" style="background:var(--series-pre2026)"></span>
-					5 weeks before ({fmtDate(hoverRow.datePre2026, { month: 'short', day: 'numeric' })}): {fmtPct(hoverRow.pctVsPre2026)}
+					Approx. 5 weeks before ({fmtDate(hoverRow.datePre2026, { month: 'short', day: 'numeric' })}): {fmtPct(hoverRow.pctVsPre2026)}
 				</div>
 				<div class="t-row">
 					<span class="t-swatch" style="background:var(--series-2025)"></span>

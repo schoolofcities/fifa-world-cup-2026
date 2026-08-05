@@ -2,8 +2,8 @@
 	import { base } from '$app/paths';
 
 	const CITIES = [
-		{ key: 'toronto', label: 'Toronto, ON', venue: 'BMO Field', img: 'match-activity/zoi/toronto.png' },
-		{ key: 'vancouver', label: 'Vancouver, BC', venue: 'BC Place', img: 'match-activity/zoi/vancouver.png' },
+		{ key: 'toronto', label: 'Toronto, Ont.', venue: 'BMO Field', img: 'match-activity/zoi/toronto.png' },
+		{ key: 'vancouver', label: 'Vancouver, B.C.', venue: 'BC Place', img: 'match-activity/zoi/vancouver.png' },
 	];
 
 	const legend = [
