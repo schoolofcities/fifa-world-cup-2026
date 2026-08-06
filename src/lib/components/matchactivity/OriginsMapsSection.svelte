@@ -53,7 +53,7 @@
 		<h3 class="city-title">Matches in Toronto</h3>
 		<div class="origins-row">
 			<MetroOriginsMap csdFC={geo.gthaCsd} {usaFeature} waterFC={geo.waterToronto} rows={level.metroToronto} cityLabel="Greater Toronto and Hamilton Area" {radiusScale} />
-			<NorthAmericaOriginsMap provincesFC={geo.provinces} {usaFeature} rows={level.naToronto} cityLabel="Canada and USA" {radiusScale} />
+			<NorthAmericaOriginsMap provincesFC={geo.provinces} {usaFeature} rows={level.naToronto} cityLabel="Canada and U.S." {radiusScale} />
 		</div>
 	</div>
 
@@ -68,7 +68,7 @@
 		<h3 class="city-title">Matches in Vancouver</h3>
 		<div class="origins-row">
 			<MetroOriginsMap csdFC={geo.metroVancouverCsd} {usaFeature} waterFC={geo.waterVancouver} rows={level.metroVancouver} cityLabel="Metro Vancouver" {radiusScale} />
-			<NorthAmericaOriginsMap provincesFC={geo.provinces} {usaFeature} rows={level.naVancouver} cityLabel="Canada and USA" {radiusScale} />
+			<NorthAmericaOriginsMap provincesFC={geo.provinces} {usaFeature} rows={level.naVancouver} cityLabel="Canada and U.S." {radiusScale} />
 		</div>
 	</div>
 </div>

@@ -38,7 +38,7 @@
 		<Hero
 			icons={matchActivityIcons}
 			title="Visitor Activity Across Soccer Matches in Toronto and Vancouver"
-			lede="The recent soccer matches invited a largely a local audience for a global event"
+			lede="The recent soccer matches invited a largely local audience for a global event"
 			date="2026"
 			author="Yihoi Jung, Aniket Kali"
 		>
@@ -61,7 +61,7 @@
 
 	<div class="section-intro">
 		<p>
-			We counted the number of visits to these zones from June 1 to July 10 – encapsulating all soccer matches in both cities – and compared them to approximately five weeks prior and the  same date one year previous.
+			We counted the number of visits to these zones from June 1 to July 10 – encapsulating all soccer matches in both cities – and compared them to approximately five weeks prior and the same date one year ago.
 		</p>
 		<p>
 			We found that activity was up compared to approximately five weeks prior, but this may be partially a result of the weather warming up. But, when compared to the same date in 2025, we found that activity was approximately the same, and sometimes lower than a year ago, with no noticeable spikes on match days.
@@ -71,24 +71,27 @@
 
 	<div class="section-intro">
 		<p>
-			Even if visit trends did not spike for matches in either city, there still were visitors in the catchment areas. We also asked – where did they come from, nearby or afar?
+			Even if visitation trends did not spike for matches in either city, there were still many visitors on match days in the catchment areas. We also asked – where did they come from, nearby or afar?
 		</p>
 		<p>
-			Overwhelmingly, visitors on match days were local. They were largely from the host cities themselves, with only a modest amount from the metropolitan regions and a trickle from other provinces or the United States.
+			Overwhelmingly, visitors on match days were local. They were largely from the host cities themselves, with only a modest number from the metropolitan regions and a trickle from other provinces or the United States. On average, for the two-kilometre radius, just 7.1% of visitors for Toronto's match days were from outside the city, and 9.9% for Vancouver, with similar numbers for the whole city.
+		</p>
+		<p>
+			Some of this dominance is to be expected: Toronto and Vancouver are the largest cities in their regions. Still, the surrounding municipalities showed up in far fewer numbers than their share of the regional population might suggest.
 		</p>
 	</div>
 	<OriginsMapsSection geo={data.geo} />
 
 	<div class="section-intro">
 		<p>
-			So it appears that, in Toronto and Vancouver, the act of hosting the global event was largely a local one. 
+			So it appears that, in Toronto and Vancouver, the impact of hosting the global event was largely a local one.
 		</p>
 	</div>
 
 	<div class="ma-methods">
 	<MethodsSection>
 		<h3>Mobile activity data</h3>
-		<p>We used anonymized mobile activity data provided by Cuebiq, which aggregates a sample of location records collected by mobility data providers. Because the data represent only a subset of mobile devices and include privacy-preserving noise, the results should be interpreted as broad patterns rather than precise counts of individuals.</p>
+		<p>We used anonymized mobile activity data provided by Cuebiq, which processes a sample of location records collected by mobility data providers. Because the data represent only a subset of opted-in mobile devices and include privacy-preserving noise, the results should be interpreted as broad patterns rather than precise counts of individuals.</p>
 		<p>We examined three 40-day periods, with two comparison periods to distinguish activity related to the tournament:</p>
 		<ol>
 			<li>FIFA World Cup 2026 period: June 1 to July 10, 2026</li>
